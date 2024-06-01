@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownBig {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.admin-login-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 100px;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Tilt Neon", sans-serif;
+    font-optical-sizing: auto;
+    background: linear-gradient(45deg, #afe8ffa4, #ffc3a0a6, #b4fdb19f, #cfebfea2, #f8ea9baf, #ffdabcb2);
+    background-size: 300% 300%;
+    animation: gradient 30s ease infinite;
+}
+
+.login-box {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(9px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.35);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.admin-login-container .login-box img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    outline: 3px solid #00000088;
+    outline-offset: -5px;
+    z-index: 10;
+    position: absolute;
+    top: -145px;
+    left: -100px;
+    animation: slideDownBig 1s ease-in-out;
+}
+
+.login-box .login-box-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #00000034;
+}
+
+.login-box .login-box-header h1 {
+    font-size: 25px;
+    font-weight: 450;
+    color: #000;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.login-box .login-box-body {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 20px 30px 20px;
+    margin: 0;
+}
+
+.login-box .login-box-body form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 15px 0 15px;
+    margin: 0;
+}
+
+.login-box .login-box-body form label {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.login-box .login-box-body form .custom-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0;
+    margin: 15px 0 0 0;
+    height: auto;
+    background-color: transparent;
+}
+
+.login-box .login-box-body form .custom-group .field {
+    width: 100%;
+    height: auto;
+    padding: 10px 35px;
+    border-radius: 5px;
+    color: #000;
+    background-color: transparent;
+    border: 1px solid #000;
+    font-size: 15px;
+    margin: 0;
+}
+
+.login-box .login-box-body form .custom-group .field:focus,
+.login-box .login-box-body form .custom-group .field:active {
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    box-shadow: 0px 0px 0px 4px rgb(59, 87, 211, 0.45);
+}
+
+.login-box .login-box-body form .custom-group span {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 9px 5px;
+    margin: 0;
+    border-right: 1px solid #000;
+    font-size: 15px;;
+}
+
+.login-box .login-box-body form .custom-group a {
+    position: absolute;
+    top: 55%;
+    right: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 0;
+}
+
+.login-box .login-box-body form .custom-button {
+    width: 100%;
+    height: auto;
+    padding: 7px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    background-color: #000;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    transition: all 0.2s ease-in-out
+}
+
+.login-box .login-box-body form .custom-button:hover {
+    background-color: #000000d5;
+}
+
+.login-box .login-box-body form .custom-button:disabled {
+    cursor: not-allowed;
+    background-color: #888888d5;
+    padding: 10px 15px;
+}
+
+.login-box .login-box-body form .custom-button:disabled:hover {
+    background-color: #888888d5;
+}
+
+.login-box .login-box-body form .custom-button span {
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.login-box .login-box-body form .custom-button:hover span {
+    transform: translateX(5px);
+}
+
+.login-box .login-box-body form .custom-button .loader {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: loader 1s linear infinite;
+}
+
+.login-box .login-box-body form .customer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.login-box .login-box-body form .customer h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-box .login-box-body form .customer .link {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: none;
+    color: rgb(59, 87, 211, 0.85);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-box .login-box-body form .customer link:hover {
+    color: rgb(59, 87, 211, 1);
+    transform: translateX(5px);
+}
+
+.login-box .login-box-body form p {
+    font-size: medium;
+    font-weight: 500;
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    text-align: left;
+}
