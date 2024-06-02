@@ -14,7 +14,7 @@ function Sidebar({ menu }) {
             <ul>
                 {menu.map((item, index) => (
                     <li key={index}>
-                        <Link to={item.link} className={`navigator ${pathname === item.link ? 'active' : ''}`}>{item.title}</Link>
+                        <Link to={item.link} className={`navigator ${pathname === item.link ? 'active' : ''}`}>{item.icon} {item.title}</Link>
                     </li>
                 ))}
             </ul>

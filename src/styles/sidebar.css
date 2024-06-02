@@ -32,7 +32,7 @@
     /* background: linear-gradient(45deg, #afe8ff, #ffc3a0, #b4fdb1, #cfebfe, #f8ea9b, #ffdabc);
     background-size: 300% 300%;
     animation: gradient 30s ease infinite; */
-    background: linear-gradient(45deg, #afe8ff, #cfebfe);
+    background: linear-gradient(180deg, #cfebfe, #afe8ff);
     backdrop-filter: blur(25px);
 }
 

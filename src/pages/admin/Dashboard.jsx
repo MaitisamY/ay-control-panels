@@ -1,6 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 
-import { FaMoneyBill, FaBox, FaUsers, FaMoneyCheck } from "react-icons/fa6";
+import { FaMoneyBill, FaBox, FaUsers, FaMoneyCheck } from 'react-icons/fa6';
+import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPersonCheck, BsPeople, BsReceipt, BsWrenchAdjustableCircle } from 'react-icons/bs';
 
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
@@ -29,14 +30,14 @@ const AdminDashboard = () => {
             <Main>
                 <div className="bar">
                     <Sidebar menu={[
-                        { title: "Dashboard", link: "/admin/dashboard" },
-                        { title: "Orders", link: "/admin/orders" },
-                        { title: "Quotes", link: "/admin/quotes" },
-                        { title: "Vectors", link: "/admin/vectors" },
-                        { title: "Salesmen", link: "/admin/salesmen" },
-                        { title: "Clients", link: "/admin/clients" },
-                        { title: "Invoices", link: "/admin/invoices" },
-                        { title: "Settings", link: "/admin/settings" },
+                        { title: "Dashboard", link: "/admin/dashboard", icon: <BsSpeedometer2 /> },
+                        { title: "Orders", link: "/admin/orders", icon: <BsBox /> },
+                        { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote /> },
+                        { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen /> },
+                        { title: "Salesmen", link: "/admin/salesmen", icon: <BsPersonCheck /> },
+                        { title: "Clients", link: "/admin/clients", icon: <BsPeople /> },
+                        { title: "Invoices", link: "/admin/invoices", icon: <BsReceipt /> },
+                        { title: "Settings", link: "/admin/settings", icon: <BsWrenchAdjustableCircle /> },
                     ]} />
                 </div>
             </Main>
