@@ -1,0 +1,115 @@
+.boxTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 20%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.boxTwo h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.boxTwo h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.boxTwo .teal {
+    color: #1abc9c;
+    font-size: 30px;
+}
+
+.boxTwo .pink {
+    color: #e84393;
+    font-size: 30px;
+}
+
+.boxTwo .black {
+    color: #000;
+    font-size: 30px;
+}
+
+.boxTwo .white {
+    color: #fff;
+    font-size: 30px;
+}
+
+.boxTwo .gray {
+    color: #7f8c8d;
+    font-size: 30px;
+}
+
+.boxTwo .dark-gray {
+    color: #34495e;
+    font-size: 30px;
+}
+
+.boxTwo .torquoise {
+    color: #16a085;
+    font-size: 30px;
+}
+
+.boxTwo .navy {
+    color: #2980b9;
+    font-size: 30px;
+}
+
+.boxTwo .purple {
+    color: #8e44ad;
+    font-size: 30px;
+}
+
+.boxTwo .green {
+    color: #2ecc71;
+    font-size: 30px;
+}
+
+.boxTwo .blue {
+    color: #2980b9;
+    font-size: 30px;
+}
+
+.boxTwo .sea {
+    color: #09cece;
+    font-size: 30px;
+} 
+
+.boxTwo .orange {
+    color: #f1c40f;
+    font-size: 30px;
+}
+
+.boxTwo .red {
+    color: #e74c3c;
+    font-size: 30px;
+}
+
+.boxTwo .yellow {
+    color: #f39c12;
+    font-size: 30px;
+}
+
+.boxTwo > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}

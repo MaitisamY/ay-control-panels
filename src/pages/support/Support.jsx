@@ -3,14 +3,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaUnlockKeyhole, FaRegUser, FaAt, FaRightToBracket } from 'react-icons/fa6';
-import { MdCheckBoxOutlineBlank, MdCheckBox, MdLockReset } from 'react-icons/md';
+import { FaRegStar, FaAt, FaRegUser, FaAnglesRight, FaRegMessage } from 'react-icons/fa6'
 
-const Signup = () => {
-
+const Support = () => {
     const { login } = useAuth();
+    const navigate = useNavigate();
 
     const [isShown, setIsShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -23,25 +22,23 @@ const Signup = () => {
         initialValues: {
             name: '',
             email: '',
-            password: '',
-            confirmPassword: ''
+            subject: '',
+            message: ''
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Name is required'),
             email: Yup.string().email('Invalid email address').required('Email is required'),
-            password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
-            confirmPassword: Yup.string()
-                .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                .required('Confirm Password is required')
+            subject: Yup.string().required('Subject is required'),
+            message: Yup.string().required('Message is required')
         }),
         onSubmit: async (values) => {
             try {
                 setIsLoading(true);
-                const response = await axios.post('/api/signup', values);
+                const response = await axios.post('/api/support', values);
                 setTimeout(() => {
                     login(response.data);
                     setIsLoading(false);
-                    toast.success('Your account has been created successfully', {
+                    toast.success('Support ticket created successfully', {
                         position: "bottom-center",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -52,11 +49,12 @@ const Signup = () => {
                         theme: "colored",
                     })
                 }, 3000);
-                // Handle successful signup (e.g., navigate to login)
+                
             } catch (error) {
-                console.error('Signup error:', error);
+                console.error('Support ticket creation error:', error);
+
                 setTimeout(() => {
-                    toast.error('Signup failed', {
+                    toast.error('Support ticket creation failed', {
                         position: "bottom-center",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -72,7 +70,7 @@ const Signup = () => {
         }
     });
 
-    document.title = 'AY Control Panels | Sign Up';
+    document.title = 'AY Control Panels | Support';
 
     return (
         <div className="outer-app-container">
@@ -80,7 +78,7 @@ const Signup = () => {
             <div className="outer-app-box">
                 <img src="/Y-3.png" alt="login image" />
                 <div className="outer-app-box-header">
-                    <h1>Sign-up</h1>
+                    <h1>Talk to support</h1>
                 </div>
 
                 <div className="outer-app-box-body">
@@ -113,61 +111,50 @@ const Signup = () => {
                         {formik.errors.email ? <p>{formik.errors.email}</p> : null}
 
                         <div className="custom-group">
-                            <span><FaUnlockKeyhole /></span>
+                            <span><FaRegStar /></span>
                             <input
                                 className="field"
-                                id="password"
-                                name="password"
-                                type={isShown ? "text" : "password"}
-                                value={formik.values.password} 
+                                id="subject"
+                                name="subject"
+                                value={formik.values.subject} 
                                 onChange={formik.handleChange} 
-                                placeholder="Enter your password"
+                                placeholder="Enter subject"
                             />
                         </div>
-                        {formik.errors.password ? <p>{formik.errors.password}</p> : null}
+                        {formik.errors.subject ? <p>{formik.errors.subject}</p> : null}
 
                         <div className="custom-group">
-                            <span><FaUnlockKeyhole /></span>
-                            <input
+                            <span><FaRegMessage /></span>
+                            <textarea
                                 className="field"
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                type={isShown ? "text" : "password"}
-                                value={formik.values.confirmPassword} 
+                                id="message"
+                                name="message"
+                                rows="1"
+                                value={formik.values.message} 
                                 onChange={formik.handleChange} 
-                                placeholder="Confirm your password"
+                                placeholder="Enter your message / issue"
                             />
                         </div>
-                        {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
-
-                        <div className="customer">
-                            <h4>
-                                {
-                                    isShown ? 
-                                    <><span><MdCheckBox onClick={togglePassword} style={{ color: 'rgba(59, 87, 211, 1)'}} /></span> Hide password</>  
-                                    : <><span><MdCheckBoxOutlineBlank onClick={togglePassword} /></span> Show password</>
-                                }
-                            </h4>
-                        </div>
+                        {formik.errors.message ? <p>{formik.errors.message}</p> : null}
                         
                         <button type="submit" className="custom-button" disabled={isLoading}>
                             {
                                 isLoading ? 
                                 <>Please Wait... <div className="loader"></div></> 
-                                : <>Sign up <span><FaRightToBracket /></span></>
+                                : <>Submit <span><FaAnglesRight /></span></>
                             }
                         </button>
 
                         <div className="customer">
-                            <h4>Are you already a client? <Link className="link" to="/login">Login</Link></h4>
+                            <h4>Are you a new client? <Link className="link" to="/signup">Sign up</Link></h4>
+                            <h4>Don't have any issue? <Link className="link" to="/login">Login</Link></h4>
                         </div>
                     </form>
                 </div>
 
                 <div className="outer-app-box-footer">
                     <p>
-                        If you are going through any issues, please contact the {' '}
-                        <Link className="link" to="/support">Support</Link>.
+                        A support ticket will be created. And one of our team members will reach out to you shortly.
                     </p>
                 </div>
             </div>
@@ -175,4 +162,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default Support;

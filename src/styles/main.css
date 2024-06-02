@@ -1,0 +1,43 @@
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chart-container {
+    width: 45%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}

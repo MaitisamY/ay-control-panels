@@ -1,0 +1,481 @@
+.outer-app-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 100px;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Tilt Neon", sans-serif;
+    font-optical-sizing: auto;
+    background: linear-gradient(45deg, #afe8ffa4, #ffc3a0a6, #b4fdb19f, #cfebfea2, #f8ea9baf, #ffdabcb2);
+    background-size: 300% 300%;
+    animation: gradient 30s ease infinite;
+}
+
+.outer-app-box {
+    position: relative;
+    width: 20%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(9px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.35);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.outer-app-container .outer-app-box img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+    top: -110px;
+    left: -70px;
+    border: none;
+    animation: slideDownBig 1s ease-in-out;
+}
+
+.outer-app-box .outer-app-box-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #00000034;
+}
+
+.outer-app-box .outer-app-box-header h1 {
+    font-size: 25px;
+    font-weight: 450;
+    color: #000;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.outer-app-box .outer-app-box-body {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 20px 0 20px;
+    margin: 0;
+}
+
+.outer-app-box .outer-app-box-body form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 15px 0 15px;
+    margin: 0;
+}
+
+.outer-app-box .outer-app-box-body form label {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.outer-app-box .outer-app-box-body form .custom-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    margin: 15px 0 0 0;
+    height: auto;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.outer-app-box .outer-app-box-body form .custom-group .field {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    margin: 0;
+    font-family: "Tilt Neon", sans-serif;
+    font-optical-sizing: auto;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+}
+
+.outer-app-box .outer-app-box-body form .custom-group .field:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.outer-app-box .outer-app-box-body form .custom-group .field:focus,
+.outer-app-box .outer-app-box-body form .custom-group .field:active {
+    /* box-shadow: 0px 0px 0px 4px rgb(59, 87, 211, 0.45); */
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.outer-app-box .outer-app-box-body form .custom-group span {
+    font-size: 15px;
+    padding: 12px;
+    margin: 0;
+    border-right: 1px solid #000;
+    font-size: 15px;
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    transition: all 0.2s ease-in-out
+}
+
+.outer-app-box .outer-app-box-body form .custom-group a {
+    position: absolute;
+    top: 55%;
+    right: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 0;
+}
+
+.outer-app-box .outer-app-box-body form .custom-button {
+    width: 100%;
+    height: auto;
+    padding: 7px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    background-color: #3A3937;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.outer-app-box .outer-app-box-body form .custom-button:hover {
+    background-color: #000000d5;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.outer-app-box .outer-app-box-body form .custom-button:disabled {
+    cursor: not-allowed;
+    background-color: #888888d5;
+    padding: 10px 15px;
+}
+
+.outer-app-box .outer-app-box-body form .custom-button:disabled:hover {
+    background-color: #888888d5;
+}
+
+.outer-app-box .outer-app-box-body form .custom-button span {
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.outer-app-box .outer-app-box-body form .custom-button:hover span {
+    transform: translateX(5px);
+}
+
+.outer-app-box .outer-app-box-body form .custom-button .loader {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: loader 1s linear infinite;
+}
+
+.outer-app-box .outer-app-box-body form .customer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.outer-app-box .outer-app-box-body form .customer h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.outer-app-box .outer-app-box-body form .customer h4 span {
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.outer-app-box .outer-app-box-body form p {
+    font-size: medium;
+    font-weight: 500;
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    text-align: left;
+}
+
+.outer-app-box .outer-app-box-footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 35px;
+    margin: 0;
+    border-top: 1px solid #00000034;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 1749px) {
+    .outer-app-box {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 1549px) {
+    .outer-app-box {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1335px) {
+    .outer-app-box {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 1149px) {
+    .outer-app-box {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1029px) {
+    .outer-app-box {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .outer-app-box {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 849px) {
+    .outer-app-box {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 791px) {
+    .outer-app-box {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 739px) {
+    .outer-app-box {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .outer-app-box {
+        width: 75%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 150px;
+        height: 150px;
+        top: -110px;
+        left: -70px;
+    }
+}
+
+@media screen and (max-width: 629px) {
+    .outer-app-box {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 579px) {
+    .outer-app-container {
+        padding: 80px;
+    }
+
+    .outer-app-box {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 519px) {
+    .outer-app-container {
+        padding: 75px;
+    }
+
+    .outer-app-box {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 489px) {
+    .outer-app-container {
+        padding: 50px;
+    }
+
+    .outer-app-box {
+        width: 100%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 120px;
+        height: 120px;
+        top: -90px;
+        left: -40px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .outer-app-container {
+        padding: 30px;
+    }
+
+    .outer-app-box {
+        width: 100%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 120px;
+        height: 120px;
+        top: -90px;
+        left: -20px;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .outer-app-container {
+        padding: 10px;
+    }
+
+    .outer-app-box {
+        width: 100%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 120px;
+        height: 120px;
+        top: -90px;
+        left: -10px;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .outer-app-container {
+        padding: 10px;
+    }
+
+    .outer-app-box {
+        width: 100%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 120px;
+        height: 120px;
+        top: -90px;
+        left: -10px;
+    }
+}
+
+@media screen and (max-width: 349px) {
+    .outer-app-container {
+        padding: 10px;
+    }
+
+    .outer-app-box {
+        width: 100%;
+    }
+
+    .outer-app-container .outer-app-box img {
+        width: 120px;
+        height: 120px;
+        top: -90px;
+        left: 0;
+    }
+
+    .outer-app-box .outer-app-box-body form {
+        padding: 0 5px 0 5px;
+    }
+}

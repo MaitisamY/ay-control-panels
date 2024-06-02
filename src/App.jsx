@@ -1,4 +1,5 @@
 import './global.css'
+import './styles/OuterAppStyles.css'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -7,10 +8,11 @@ import { ToastContainer } from 'react-toastify';
 import Signup from './pages/signup/Signup';
 import NotFound from './pages/notFound/NotFound';
 import Login from './pages/login/Login';
+import Support from './pages/support/Support';
 import ProtectedRoute from './private/ProtectedRoute';
 import SalesmanDashboard from './pages/salesman/Dashboard';
 import AdminDashboard from './pages/admin/Dashboard';
-import CustomerDashboard from './pages/customer/Dashboard';
+import ClientDashboard from './pages/client/Dashboard';
 
 const App = () => {
     return (
@@ -22,8 +24,9 @@ const App = () => {
                       <Route path="/" element={<Login />} />
                       <Route path="/login" element={<Login />} />
                       <Route path="/signup" element={<Signup />} />
+                      <Route path="/support" element={<Support />} />
                       <Route
-                          path="/salesman-dashboard"
+                          path="/salesman/dashboard"
                           element={
                               <ProtectedRoute roles={['salesman']}>
                                   <SalesmanDashboard />
@@ -31,7 +34,7 @@ const App = () => {
                           }
                       />
                       <Route
-                          path="/admin-dashboard"
+                          path="/admin/dashboard"
                           element={
                               <ProtectedRoute roles={['admin']}>
                                   <AdminDashboard />
@@ -39,10 +42,10 @@ const App = () => {
                           }
                       />
                       <Route
-                          path="/customer-dashboard"
+                          path="/client/dashboard"
                           element={
-                              <ProtectedRoute roles={['customer']}>
-                                  <CustomerDashboard />
+                              <ProtectedRoute roles={['client']}>
+                                  <ClientDashboard />
                               </ProtectedRoute>
                           }
                       />

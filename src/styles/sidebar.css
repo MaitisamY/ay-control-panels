@@ -1,0 +1,97 @@
+.responsive-sidebar {
+    display: none;
+}
+
+.bar {
+    width: 15%;
+    height: 80vh;
+    position: sticky;
+    top: 20px;
+    z-index: 999;
+    margin-top: -265px;
+    margin-left: 3%;
+    padding: 0;
+}
+
+.bar .close-btn {
+    display: none;
+}
+
+.sidebar {
+    width: 100%;
+    height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    /* background: linear-gradient(45deg, #afe8ff, #ffc3a0, #b4fdb1, #cfebfe, #f8ea9b, #ffdabc);
+    background-size: 300% 300%;
+    animation: gradient 30s ease infinite; */
+    background: linear-gradient(45deg, #afe8ff, #cfebfe);
+    backdrop-filter: blur(25px);
+}
+
+.sidebar .sidebar-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px 30px 20px;
+    border-bottom: 1px solid #0000001c;
+}
+
+.sidebar ul {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.sidebar ul li {
+    width: 100%;
+    list-style: none;
+}
+
+.sidebar ul li .navigator {
+    width: 100%;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    opacity: 0.87;
+}
+
+.sidebar ul li .navigator:hover {
+    opacity: 1;
+    background-color: #00000009;
+    /* background-color: #ffffff33; */
+    backdrop-filter: blur(5px);
+}
+
+.sidebar ul li .navigator.active {
+    opacity: 1;
+    color: #fff;
+    background-color: #000000be;
+    backdrop-filter: blur(5px);
+}
