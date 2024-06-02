@@ -1,19 +1,29 @@
 import '../styles/boxOne.css'
 
 import { useAuth } from '../context/AuthContext'
-import { FaBars, FaRegBell, FaRegUser, FaPowerOff } from 'react-icons/fa6'
+import useThemeContainerStore from '../stores/useThemeContainerStore.js';
+import { TfiBell, TfiUser, TfiPowerOff, TfiSettings } from 'react-icons/tfi'
 
 function BoxOne() {
 
     const { user, logout } = useAuth()
+    const { toggleThemeContainer } = useThemeContainerStore();
 
     return (
-        <div className="boxOne">
-            <a id="menu-btn"><FaBars /></a>
-            <h3><FaRegBell /></h3>
-            <h4><FaRegUser /> {user?.name}</h4>
-            <h4 onClick={logout}><FaPowerOff /></h4>
-        </div>
+        <>
+            <div className="boxOne">
+                <a><span><TfiBell /></span></a>
+            </div>
+            <div className="boxOne">
+                <a><span><TfiUser /></span> {user?.name.slice(0, 10)} {user?.name.length > 10 ? '...' : ''} </a>
+            </div>
+            <div className="boxOne">
+                <a onClick={logout}><span><TfiPowerOff /></span></a>
+            </div>
+            <div className="boxOne">
+                <a onClick={toggleThemeContainer}><span><TfiSettings /></span></a>
+            </div>
+        </>
     )
 }
 

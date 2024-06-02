@@ -190,8 +190,8 @@
     outline: none;
     color: #fff;
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -213,6 +213,7 @@
 
 .outer-app-box .outer-app-box-body form .custom-button:disabled:hover {
     background-color: #888888d5;
+    box-shadow: none;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button span {

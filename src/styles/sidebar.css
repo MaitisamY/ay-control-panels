@@ -8,7 +8,7 @@
     position: sticky;
     top: 20px;
     z-index: 999;
-    margin-top: -265px;
+    margin-top: -250px;
     margin-left: 3%;
     padding: 0;
 }
@@ -29,10 +29,7 @@
     align-items: center;
     padding: 0;
     box-sizing: border-box;
-    /* background: linear-gradient(45deg, #afe8ff, #ffc3a0, #b4fdb1, #cfebfe, #f8ea9b, #ffdabc);
-    background-size: 300% 300%;
-    animation: gradient 30s ease infinite; */
-    background: linear-gradient(180deg, #cfebfe, #afe8ff);
+    background: var(--sidebar-gradient);
     backdrop-filter: blur(25px);
 }
 
@@ -85,13 +82,12 @@
 .sidebar ul li .navigator:hover {
     opacity: 1;
     background-color: #00000009;
-    /* background-color: #ffffff33; */
     backdrop-filter: blur(5px);
 }
 
 .sidebar ul li .navigator.active {
     opacity: 1;
     color: #fff;
-    background-color: #000000be;
+    background-color: var(--active-link);
     backdrop-filter: blur(5px);
 }

@@ -1,15 +1,17 @@
 import '../styles/boxTwo.css'
 
-function BoxTwo({ heading, icon, value }) {
+function BoxTwo({ boxes }) {
     return (
-        <div className="boxTwo">
-            <div>
-                <h4>{heading}</h4> {icon}
+        boxes && boxes.map((box, index) => (
+            <div key={index} className="boxTwo">
+                <div>
+                    <h4>{box.heading && box.heading}</h4> {box.icon && box.icon}
+                </div>
+                <div>
+                     <h2>{box.value && box.value}</h2>
+                </div>
             </div>
-            <div>
-                <h2>{value}</h2>
-            </div>
-        </div>
+        ))
     )
 }
 
