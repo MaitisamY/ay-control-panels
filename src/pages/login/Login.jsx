@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { FaUnlockKeyhole, FaAt, FaEye, FaEyeSlash, FaRightToBracket } from 'react-icons/fa6'
 
 const Login = () => {
-    const { login } = useAuth();
+    const { user, login } = useAuth();
     const navigate = useNavigate();
 
     const [isShown, setIsShown] = useState(false);
@@ -99,11 +99,14 @@ const Login = () => {
 
     document.title = 'AY Control Panels | Login';
 
+    if (user) {
+        navigate(`/${user.role}/dashboard`);
+    }
+
     return (
         <div className="outer-app-container">
-            
+            <img src="/Y-3.png" alt="login image" />
             <div className="outer-app-box">
-                <img src="/Y-3.png" alt="login image" />
                 <div className="outer-app-box-header">
                     <h1>Login</h1>
                 </div>
@@ -154,7 +157,7 @@ const Login = () => {
 
                 <div className="outer-app-box-footer">
                     <p>
-                        If you don't have an account, please contact the {' '}
+                        If you are having trouble logging in, please contact the {' '}
                         <Link className="link" to="/support">Support</Link>.
                     </p>
                 </div>

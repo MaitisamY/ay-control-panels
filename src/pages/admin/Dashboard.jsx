@@ -1,34 +1,32 @@
 import '../../styles/innerAppStyles.css'
-import '../../styles/themeSettings.css';
 
-import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
-import { CSSTransition } from 'react-transition-group';
-import { FaMoneyBill, FaBox, FaUsers, FaMoneyCheck, FaX } from 'react-icons/fa6';
-import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPersonCheck, BsPeople, BsReceipt, BsWrenchAdjustableCircle } from 'react-icons/bs';
+import useThemeStore from '../../stores/useThemeStore.js';
+import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
+import { GoTools, GoPeople, GoLog } from 'react-icons/go';
+import { GrGroup, GrIteration, GrCurrency, GrLineChart } from 'react-icons/gr';
 
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
 import BoxTwo from "../../components/BoxTwo";
 import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
+import ThemeSettings from "../../components/ThemeSettings";
 
 const AdminDashboard = () => {
-    const { isOpen, toggleThemeContainer } = useThemeContainerStore();
-    /* Using Zustand store. */
+
+    const { theme } = useThemeStore();
 
     return (
-        <div className="inner-app-container">
-            <CSSTransition
-                in={isOpen}
-                timeout={300}
-                classNames="theme-container"
-                unmountOnExit
-            >
-                <div className="theme-container">
-                    <a className="close-btn" onClick={toggleThemeContainer}><FaX /></a>
-                    <h1>Theme settings</h1>
-                </div>
-            </CSSTransition>
+        <div 
+            className={`inner-app-container 
+            ${ theme === 'green' ? 'green-theme' 
+                : theme === 'red' ? 'red-theme' 
+                    : theme === 'orange' ? 'orange-theme' 
+                        : theme === 'yellow' ? 'yellow-theme' 
+                            : theme === 'black&white' ? 'black-and-white-theme'
+                            : '' }`}
+        >
+            <ThemeSettings />
             <Header>
                 <div className="level-one">
                     <BoxOne />
@@ -37,10 +35,10 @@ const AdminDashboard = () => {
                 <div className="level-two">
                     <BoxTwo 
                         boxes={[
-                            { heading: "Sales", icon: <FaMoneyBill className="green" />, value: "3400/-" },
-                            { heading: "Orders", icon: <FaBox className="blue" />, value: "24" },
-                            { heading: "Clients", icon: <FaUsers className="purple" />, value: "10" },
-                            { heading: "Revenue", icon: <FaMoneyCheck className="teal" />, value: "3400/-" },
+                            { heading: "Sales", icon: <GrCurrency className="green" />, value: "3400/-" },
+                            { heading: "Orders", icon: <GrIteration className="blue" />, value: "24" },
+                            { heading: "Clients", icon: <GrGroup className="torquoise" />, value: "10" },
+                            { heading: "Revenue", icon: <GrLineChart className="purple" />, value: "3400/-" },
                         ]} 
                     />
                 </div>
@@ -53,10 +51,9 @@ const AdminDashboard = () => {
                             { title: "Orders", link: "/admin/orders", icon: <BsBox /> },
                             { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote /> },
                             { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen /> },
-                            { title: "Salesmen", link: "/admin/salesmen", icon: <BsPersonCheck /> },
+                            { title: "Salesmen", link: "/admin/salesmen", icon: <GoPeople /> },
                             { title: "Clients", link: "/admin/clients", icon: <BsPeople /> },
-                            { title: "Invoices", link: "/admin/invoices", icon: <BsReceipt /> },
-                            { title: "Settings", link: "/admin/settings", icon: <BsWrenchAdjustableCircle /> },
+                            { title: "Invoices", link: "/admin/invoices", icon: <GoLog /> },
                         ]} 
                     />
                 </div>

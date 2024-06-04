@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { FaRegStar, FaAt, FaRegUser, FaAnglesRight, FaRegMessage } from 'react-icons/fa6'
 
 const Support = () => {
-    const { login } = useAuth();
+    const { user, login } = useAuth();
     const navigate = useNavigate();
 
     const [isShown, setIsShown] = useState(false);
@@ -72,11 +72,14 @@ const Support = () => {
 
     document.title = 'AY Control Panels | Support';
 
+    if (user) {
+        navigate(`/${user.role}/dashboard`);
+    }
+
     return (
         <div className="outer-app-container">
-            
+            <img src="/Y-3.png" alt="login image" />
             <div className="outer-app-box">
-                <img src="/Y-3.png" alt="login image" />
                 <div className="outer-app-box-header">
                     <h1>Talk to support</h1>
                 </div>

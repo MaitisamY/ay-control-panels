@@ -25,35 +25,167 @@
     top: 0;
     right: 0;
     height: 100vh;
-    width: 20vw;
-    background: var(--sidebar-gradient);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0;
     margin: 0;
     z-index: 999;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
 }
 
-.theme-container .close-btn {
+.theme-container .elements-holder {
     position: absolute;
-    top: 20px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 18vw;
+    background: var(--sidebar-gradient);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 25px;
+    margin: 0;
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(25px);
+}
+
+.theme-container .elements-holder .close-btn {
+    position: absolute;
+    top: 10px;
     right: 20px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 40px;
+    font-weight: 800;
     transition: all 0.2s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 5px;
-    padding: 7px;
-    border-radius: 25px;
-    border: none;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    backdrop-filter: blur(25px);
+    padding: 0;
+    margin: 0;
+}
+
+.theme-container .elements-holder h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.theme-container .elements-holder h5 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.theme-container .elements-holder p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.theme-container .elements-holder .selection-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 15px 10px 10px;
+    margin: 0;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector label {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    outline: 2px solid rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector:hover .theme-selector-box {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box:hover {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box.active {
+    box-shadow: 0 0 0 4px var(--box-shadow);
+    background-color: var(--active-link);
+    outline: var(--outline);
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box .theme-selector-box-inner {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box.active .theme-selector-box-inner {
+    display: block;
+}
+
+.theme-container .elements-holder .selection-container .theme-selector .theme-selector-box .theme-selector-box-inner span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
 }

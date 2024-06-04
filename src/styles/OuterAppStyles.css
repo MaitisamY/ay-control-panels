@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 0;
     padding: 100px;
     margin: 0;
     overflow: hidden;
@@ -16,6 +16,19 @@
     background: linear-gradient(45deg, #afe8ffa4, #ffc3a0a6, #b4fdb19f, #cfebfea2, #f8ea9baf, #ffdabcb2);
     background-size: 300% 300%;
     animation: gradient 30s ease infinite;
+}
+
+.outer-app-container img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    margin: 0 0 -20px 0;
+    padding: 0;
+    z-index: 10;
+    border: none;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    animation: slideDownBig 1s ease-in-out;
 }
 
 .outer-app-box {
@@ -34,20 +47,6 @@
     border-radius: 10px;
     box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.35);
     animation: fadeIn 0.5s ease-in-out;
-}
-
-.outer-app-container .outer-app-box img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-    z-index: 10;
-    position: absolute;
-    top: -110px;
-    left: -70px;
-    border: none;
-    animation: slideDownBig 1s ease-in-out;
 }
 
 .outer-app-box .outer-app-box-header {

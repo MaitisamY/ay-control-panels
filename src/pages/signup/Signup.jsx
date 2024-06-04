@@ -3,14 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaUnlockKeyhole, FaRegUser, FaAt, FaRightToBracket } from 'react-icons/fa6';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdLockReset } from 'react-icons/md';
 
 const Signup = () => {
-
-    const { login } = useAuth();
+    const { user, login } = useAuth();
+    const navigate = useNavigate();
 
     const [isShown, setIsShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -74,11 +74,14 @@ const Signup = () => {
 
     document.title = 'AY Control Panels | Sign Up';
 
+    if (user) {
+        navigate(`/${user.role}-dashboard`);
+    }
+
     return (
         <div className="outer-app-container">
-            
+            <img src="/Y-3.png" alt="login image" />
             <div className="outer-app-box">
-                <img src="/Y-3.png" alt="login image" />
                 <div className="outer-app-box-header">
                     <h1>Sign-up</h1>
                 </div>

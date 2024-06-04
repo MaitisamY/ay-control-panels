@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Muhammad Aitisam Yaseen",
+    "url": "https://ay-folio.vercel.app/",
+    "email": "m.aitisamyaseen@gmail.com",
+    "github": "https://github.com/MaitisamY"
+  },
+  "description": "AY Control Panels are designed and developed for three kinds of handlers; clients, salesman and admin to basically place orders, track orders, and manage inventory, etc. Each handler has their own boundaries and restrictions.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

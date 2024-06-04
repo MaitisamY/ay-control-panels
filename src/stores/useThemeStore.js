@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 const useThemeStore = create((set) => ({
     theme: localStorage.getItem('theme') || 'default',

@@ -1,5 +1,5 @@
 import './global.css'
-import './styles/OuterAppStyles.css'
+import './styles/outerAppStyles.css'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

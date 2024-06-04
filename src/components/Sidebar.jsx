@@ -8,8 +8,8 @@ function Sidebar({ menu }) {
 
     return (
         <div className="sidebar">
-            <div class="sidebar-header">
-                <h2>@organization</h2>
+            <div className="sidebar-header">
+                <h1>@organization</h1>
             </div>
             <ul>
                 {

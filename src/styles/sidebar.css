@@ -7,7 +7,7 @@
     height: 80vh;
     position: sticky;
     top: 20px;
-    z-index: 999;
+    z-index: 99;
     margin-top: -250px;
     margin-left: 3%;
     padding: 0;
@@ -42,6 +42,11 @@
     align-items: center;
     padding: 30px 20px 30px 20px;
     border-bottom: 1px solid #0000001c;
+}
+
+.sidebar .sidebar-header h1 {
+    font-size: 24px;
+    margin: 0;
 }
 
 .sidebar ul {
@@ -87,7 +92,7 @@
 
 .sidebar ul li .navigator.active {
     opacity: 1;
-    color: #fff;
+    color: var(--active-link-color);
     background-color: var(--active-link);
     backdrop-filter: blur(5px);
 }
