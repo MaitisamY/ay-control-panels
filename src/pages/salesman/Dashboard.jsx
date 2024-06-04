@@ -2,8 +2,7 @@ import '../../styles/innerAppStyles.css'
 
 import useThemeStore from '../../stores/useThemeStore.js';
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
-import { GoTools, GoPeople, GoLog } from 'react-icons/go';
-import { GrGroup, GrIteration, GrCurrency, GrLineChart } from 'react-icons/gr';
+import { GrGroup, GrIteration, GrCurrency, GrMoney } from 'react-icons/gr';
 
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
@@ -38,7 +37,7 @@ const SalesmanDashboard = () => {
                             { heading: "Sales", icon: <GrCurrency className="green" />, value: "2100/-" },
                             { heading: "Orders", icon: <GrIteration className="blue" />, value: "24" },
                             { heading: "Clients", icon: <GrGroup className="torquoise" />, value: "10" },
-                            { heading: "Commissions", icon: <GrLineChart className="purple" />, value: "800/-" },
+                            { heading: "Commissions", icon: <GrMoney className="purple" />, value: "800/-" },
                         ]} 
                     />
                 </div>
