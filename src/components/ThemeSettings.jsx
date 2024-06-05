@@ -6,6 +6,7 @@ import useThemeStore from '../stores/useThemeStore.js';
 import { CSSTransition } from 'react-transition-group';
 import { GoX, GoCheck } from 'react-icons/go';
 import { FcServices, FcAbout } from 'react-icons/fc';
+import { TfiBell } from 'react-icons/tfi';
 
 function ThemeSettings() {
     const { isOpen, toggleThemeContainer } = useThemeContainerStore();
@@ -60,7 +61,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Green Theme</label>
+                            <label>Green</label>
                         </div>
 
                         <div className="theme-selector" onClick={() => setTheme('red')} role="button">
@@ -69,7 +70,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Red Theme</label>
+                            <label>Red</label>
                         </div>
 
                         <div className="theme-selector" onClick={() => setTheme('orange')} role="button">
@@ -78,7 +79,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Orange Theme</label>
+                            <label>Orange</label>
                         </div>
 
                         <div className="theme-selector" onClick={() => setTheme('yellow')} role="button">
@@ -87,7 +88,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Yellow Theme</label>
+                            <label>Yellow</label>
                         </div>
 
                         <div className="theme-selector" onClick={() => setTheme('black&white')} role="button">
@@ -96,7 +97,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Black & White Theme</label>
+                            <label>Black & White</label>
                         </div>
                     </div>
 
@@ -111,6 +112,12 @@ function ThemeSettings() {
                             <option value="50">50</option>
                         </select>
                         <p>This will set the limit for the number of notifications that can be shown by the bell icon.</p>
+                        <p>For example, if you set the limit to 10. And if you have more than 10 notifications. It will look something like the below. </p>
+                        <div className="elaborator">
+                            <h3>
+                                <i><TfiBell /></i> <span>10+</span>
+                            </h3>
+                        </div>
                     </div>
                 </div>
             </div>

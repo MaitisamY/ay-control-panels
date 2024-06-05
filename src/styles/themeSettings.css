@@ -51,6 +51,10 @@
     z-index: 999;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(25px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .theme-container .elements-holder .close-btn {
@@ -121,10 +125,12 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
+    flex-shrink: 0;
     gap: 10px;
     padding: 0;
     margin: 0;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .theme-container .elements-holder .selection-container .theme-selector label {
@@ -188,4 +194,49 @@
     font-weight: 700;
     margin: 0;
     padding: 0;
+}
+
+.theme-container .elements-holder .selection-container .elaborator {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.theme-container .elements-holder .selection-container .elaborator h3 {
+    position: relative;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.theme-container .elements-holder .selection-container .elaborator h3 i {
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+}
+
+.theme-container .elements-holder .selection-container .elaborator h3 span {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -15px;
+    right: -15px;
+    font-size: 20px;
+    margin: 0;
+    transition: all 0.2s ease-in-out;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
 }
