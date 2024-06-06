@@ -1,4 +1,4 @@
-import '../../styles/innerAppStyles.css'
+import '../../styles/InnerAppStyles.css'
 
 import useThemeStore from '../../stores/useThemeStore.js';
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';

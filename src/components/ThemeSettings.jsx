@@ -52,7 +52,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>System Default</label>
+                            <label>Default</label>
                         </div>
 
                         <div className="theme-selector" onClick={() => setTheme('green')} role="button">
@@ -97,7 +97,7 @@ function ThemeSettings() {
                                     <span><GoCheck /></span>
                                 </div>
                             </div>
-                            <label>Black & White</label>
+                            <label>Grey</label>
                         </div>
                     </div>
 
