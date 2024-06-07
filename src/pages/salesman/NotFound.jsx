@@ -8,6 +8,8 @@ const NotFound = () => {
     const { pathname } = useLocation();
     // If we wanna get the last segment only --> const lastSegment = pathname.split('/').filter(Boolean).pop();
 
+    document.title = '404 - Not Found';
+
     return (
         <div className="not-found">
             <h1>404 - Not Found</h1>

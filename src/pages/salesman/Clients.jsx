@@ -7,10 +7,10 @@ import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
 import useMassImports from '../../utils/MassImports.jsx';
 
-import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen } from 'react-icons/bs';
-import { GoLog, GoX, GoSignOut } from 'react-icons/go';
-import { GrMoney, GrIteration, GrCurrency, GrCheckmark } from 'react-icons/gr';
-import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiEmail, TfiReload } from 'react-icons/tfi';
+import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
+import { GoX, GoSignOut } from 'react-icons/go';
+import { GrGroup, GrIteration, GrCurrency, GrMoney } from 'react-icons/gr';
+import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiReload } from 'react-icons/tfi';
 import { CSSTransition } from 'react-transition-group';
 
 import Header from "../../partials/Header";
@@ -21,7 +21,7 @@ import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
 
-const CustomerDashboard = () => {
+const Clients = () => {
 
     const { logout } = useAuth();
     const { theme } = useThemeStore();
@@ -31,7 +31,7 @@ const CustomerDashboard = () => {
 
     const sidebarRef = useRef(null);
 
-    document.title = "Client Dashboard | @organization";
+    document.title = "Clients | @organization";
 
     return (
         <div 
@@ -43,7 +43,6 @@ const CustomerDashboard = () => {
                             : theme === 'black&white' ? 'black-and-white-theme'
                             : '' }`}
         >
-            
             <ThemeSettings />
 
             {/* Responsive logo, sidebar toggle and sidebar */}
@@ -64,14 +63,13 @@ const CustomerDashboard = () => {
                         <a className="close-btn" onClick={onToggleSidebar}><GoX /></a>
                         <ResponsiveSidebar 
                             menu={[
-                                { title: "Dashboard", link: "/client/dashboard", icon: <BsSpeedometer2 /> },
-                                { title: "Orders", link: "/client/orders", icon: <BsBox /> },
-                                { title: "Quotes", link: "/client/quotes", icon: <BsChatRightQuote /> },
-                                { title: "Vectors", link: "/client/vectors", icon: <BsVectorPen /> },
-                                { title: "Invoices", link: "/client/invoices", icon: <GoLog /> },
-                                { title: "Notifications", link: "/client/notifications", icon: <TfiBell /> },
-                                { title: "Inbox", link: "/client/inbox", icon: <TfiEmail /> },
-                                { title: "Profile", link: "/client/profile", icon: <TfiUser /> },
+                                { title: "Dashboard", link: "/salesman/dashboard", icon: <BsSpeedometer2 /> },
+                                { title: "Orders", link: "/salesman/orders", icon: <BsBox /> },
+                                { title: "Quotes", link: "/salesman/quotes", icon: <BsChatRightQuote /> },
+                                { title: "Vectors", link: "/salesman/vectors", icon: <BsVectorPen /> },
+                                { title: "Clients", link: "/salesman/clients", icon: <BsPeople /> },
+                                { title: "Notifications", link: "/salesman/notifications", icon: <TfiBell /> },
+                                { title: "Profile", link: "/salesman/profile", icon: <TfiUser /> },
                                 { title: "Settings", onHandleClick: () => toggleThemeContainer(), icon: <TfiSettings /> },
                                 { title: "Logout", onHandleClick: () => logout(), icon: <GoSignOut /> },
                             ]}
@@ -89,10 +87,10 @@ const CustomerDashboard = () => {
                 <div className="level-two">
                     <BoxTwo 
                         boxes={[
+                            { heading: "Sales", icon: <GrCurrency className="green" />, value: "2100/-" },
                             { heading: "Orders", icon: <GrIteration className="blue" />, value: "24" },
-                            { heading: "Fulfilled", icon: <GrCheckmark className="green" />, value: "20" },
-                            { heading: "Paid", icon: <GrMoney className="torquoise" />, value: "10" },
-                            { heading: "Pending", icon: <GrCurrency className="purple" />, value: "800/-" },
+                            { heading: "Clients", icon: <GrGroup className="torquoise" />, value: "10" },
+                            { heading: "Commissions", icon: <GrMoney className="purple" />, value: "800/-" },
                         ]} 
                     />
                 </div>
@@ -101,18 +99,18 @@ const CustomerDashboard = () => {
                 <div className="bar">
                     <Sidebar 
                         menu={[
-                            { title: "Dashboard", link: "/client/dashboard", icon: <BsSpeedometer2 /> },
-                            { title: "Orders", link: "/client/orders", icon: <BsBox /> },
-                            { title: "Quotes", link: "/client/quotes", icon: <BsChatRightQuote /> },
-                            { title: "Vectors", link: "/client/vectors", icon: <BsVectorPen /> },
-                            { title: "Invoices", link: "/client/invoices", icon: <GoLog /> },
+                            { title: "Dashboard", link: "/salesman/dashboard", icon: <BsSpeedometer2 /> },
+                            { title: "Orders", link: "/salesman/orders", icon: <BsBox /> },
+                            { title: "Quotes", link: "/salesman/quotes", icon: <BsChatRightQuote /> },
+                            { title: "Vectors", link: "/salesman/vectors", icon: <BsVectorPen /> },
+                            { title: "Clients", link: "/salesman/clients", icon: <BsPeople /> },
                         ]} 
                     />
                 </div>
                 <div className="container">
                     <div className="row">
                         <h1>
-                            Dashboard 
+                            Clients 
                             <span>
                                 {
                                     isStatusReloading ? 
@@ -128,4 +126,4 @@ const CustomerDashboard = () => {
     )
 };
 
-export default CustomerDashboard;
+export default Clients;

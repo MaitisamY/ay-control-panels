@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@font-face {
+    font-family: "Tilt Neon";
+    font-display: swap;
+    src: url('/fonts/TiltNeon-Regular-VariableFont_XROT,YROT.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    font-display: swap;
+    src: url('/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -6,9 +16,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Tilt Neon', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.7px;
+    line-height: 1.5;
 }
 
 body, html {
@@ -28,7 +39,7 @@ html {
 }
 
 .link {
-    position: relative; /* Required for positioning the ::after element */
+    position: relative; 
     margin: 0;
     padding: 0;
     font-size: 15px;
@@ -38,6 +49,7 @@ html {
     cursor: pointer;
     font-weight: 500;
     transition: color 0.3s ease;
+    font-family: var(--font-tilt-neon);
 }
 
 .link::after {

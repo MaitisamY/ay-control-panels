@@ -38,6 +38,7 @@
     -webkit-backdrop-filter: blur(25px);
     overflow-x: hidden;
     overflow-y: auto;
+    transition: all 0.2s ease-in-out;
 }
 
 .sidebar .sidebar-header {
@@ -89,6 +90,8 @@
     box-sizing: border-box;
     border-radius: 25px;
     opacity: 0.87;
+    font-family: var(--font-tilt-neon);
+    transition: all 0.2s ease-in-out;
 }
 
 .sidebar ul li .navigator:hover {

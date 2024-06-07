@@ -8,7 +8,7 @@ const ProtectedRoute = ({ roles, children }) => {
         return <Navigate to="/login" />;
     }
 
-    if (!roles.includes(user.role)) {
+    if (roles && !roles.includes(user.role)) {
         return <Navigate to="/unauthorized" />;
     }
 
@@ -16,3 +16,4 @@ const ProtectedRoute = ({ roles, children }) => {
 };
 
 export default ProtectedRoute;
+

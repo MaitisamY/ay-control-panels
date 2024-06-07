@@ -169,7 +169,7 @@ const Signup = () => {
 
                 <div className="outer-app-box-footer">
                     <p>
-                        If you are going through any issues, please contact the {' '}
+                        If you are having trouble signing up, please contact the {' '}
                         <Link className="link" to="/support">Support</Link>.
                     </p>
                 </div>

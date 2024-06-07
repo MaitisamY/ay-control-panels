@@ -21,7 +21,7 @@ import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
 
-const CustomerDashboard = () => {
+const Quotes = () => {
 
     const { logout } = useAuth();
     const { theme } = useThemeStore();
@@ -31,7 +31,7 @@ const CustomerDashboard = () => {
 
     const sidebarRef = useRef(null);
 
-    document.title = "Client Dashboard | @organization";
+    document.title = "Quotes | @organization";
 
     return (
         <div 
@@ -112,7 +112,7 @@ const CustomerDashboard = () => {
                 <div className="container">
                     <div className="row">
                         <h1>
-                            Dashboard 
+                            Quotes
                             <span>
                                 {
                                     isStatusReloading ? 
@@ -128,4 +128,4 @@ const CustomerDashboard = () => {
     )
 };
 
-export default CustomerDashboard;
+export default Quotes;

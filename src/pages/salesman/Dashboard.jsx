@@ -5,11 +5,12 @@ import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
+import useMassImports from '../../utils/MassImports.jsx';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoX, GoSignOut } from 'react-icons/go';
 import { GrGroup, GrIteration, GrCurrency, GrMoney } from 'react-icons/gr';
-import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiEmail } from 'react-icons/tfi';
+import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiReload } from 'react-icons/tfi';
 import { CSSTransition } from 'react-transition-group';
 
 import Header from "../../partials/Header";
@@ -26,8 +27,11 @@ const SalesmanDashboard = () => {
     const { theme } = useThemeStore();
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
-    
+    const { isStatusReloading  } = useMassImports();
+
     const sidebarRef = useRef(null);
+
+    document.title = "Salesman Dashboard | @organization";
 
     return (
         <div 
@@ -102,6 +106,20 @@ const SalesmanDashboard = () => {
                             { title: "Clients", link: "/salesman/clients", icon: <BsPeople /> },
                         ]} 
                     />
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <h1>
+                            Dashboard 
+                            <span>
+                                {
+                                    isStatusReloading ? 
+                                    <TfiReload className="loader" /> 
+                                    : 'The system is upto date.'
+                                }
+                            </span>
+                        </h1>
+                    </div>
                 </div>
             </Main>
         </div>

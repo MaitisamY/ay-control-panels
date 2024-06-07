@@ -25,13 +25,189 @@ main {
     width: 100%;
     height: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 10px;
     padding: 0;
     box-sizing: border-box;
 }
+
+.column-1 {
+    width: 8.33333%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-2 {
+    width: 16.66666%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-3 {
+    width: 25%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-4 {
+    width: 33.33333%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-5 {
+    width: 41.66666%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-6 {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-7 {
+    width: 58.33333%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-8 {
+    width: 66.66666%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-9 {
+    width: 75%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-10 {
+    width: 83.33333%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-11 {
+    width: 91.66666%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.column-12 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+    width: 100%;
+    font-family: var(--font-tilt-neon);
+}
+
+.container h1 span {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    font-family: var(--font-plus-jakarta-sans);
+}
+
+.container h1 span .loader {
+    font-size: 20px;
+    color: var(--text-color);
+    animation: spin 2.9s linear forwards;
+} 
 
 .chart-container {
     width: 45%;
@@ -47,5 +223,18 @@ main {
 @media screen and (max-width: 630px) {
     .container {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container h1 {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container h1 span {
+        justify-content: flex-start;
     }
 }

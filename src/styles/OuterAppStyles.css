@@ -11,8 +11,6 @@
     padding: 100px;
     margin: 0;
     overflow: hidden;
-    font-family: "Tilt Neon", sans-serif;
-    font-optical-sizing: auto;
     background: linear-gradient(45deg, #afe8ffa4, #ffc3a0a6, #b4fdb19f, #cfebfea2, #f8ea9baf, #ffdabcb2);
     background-size: 300% 300%;
     animation: gradient 30s ease infinite;
@@ -68,6 +66,7 @@
     color: #000;
     margin: 0;
     padding: 20px 0;
+    font-family: var(--font-tilt-neon);
 }
 
 .outer-app-box .outer-app-box-body {
@@ -106,6 +105,7 @@
     color: #000;
     font-size: 18px;
     font-weight: 400;
+    font-family: var(--font-tilt-neon);
 }
 
 .outer-app-box .outer-app-box-body form .custom-group {
@@ -134,11 +134,10 @@
     border: none;
     font-size: 15px;
     margin: 0;
-    font-family: "Tilt Neon", sans-serif;
-    font-optical-sizing: auto;
     outline: none;
     transition: all 0.2s ease-in-out;
     resize: none;
+    font-family: var(--font-tilt-neon);
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field:hover {
@@ -153,7 +152,7 @@
 
 .outer-app-box .outer-app-box-body form .custom-group span {
     font-size: 15px;
-    padding: 12px;
+    padding: 14px;
     margin: 0;
     border-right: 1px solid #000;
     font-size: 15px;
@@ -197,6 +196,7 @@
     flex-direction: row;
     gap: 10px;
     transition: all 0.2s ease-in-out;
+    font-family: var(--font-tilt-neon);
 }
 
 .outer-app-box .outer-app-box-body form .custom-button:hover {

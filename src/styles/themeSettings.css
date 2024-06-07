@@ -82,6 +82,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 10px;
+    font-family: var(--font-tilt-neon);
 }
 
 .theme-container .elements-holder h5 {

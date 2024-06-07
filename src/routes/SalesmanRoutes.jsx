@@ -1,14 +1,29 @@
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from '../private/ProtectedRoute';
 import SalesmanDashboard from '../pages/salesman/Dashboard';
+import Orders from '../pages/salesman/Orders';
+import Quotes from '../pages/salesman/Quotes';
+import Vectors from '../pages/salesman/Vectors';
+import Clients from '../pages/salesman/Clients';
+import Notifications from '../pages/salesman/Notifications';
+import Profile from '../pages/salesman/Profile';
 import NotFound from '../pages/salesman/NotFound';
 
 function SalesmanRoutes() {
     return (
-        <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="dashboard" element={<SalesmanDashboard />} />
-            {/* Add more salesman-specific routes here */}
-        </Routes>
+        <ProtectedRoute roles={['salesman']}>
+            <Routes>
+                <Route path="*" element={<NotFound />} />
+                <Route path="dashboard" element={<SalesmanDashboard />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="quotes" element={<Quotes />} />
+                <Route path="vectors" element={<Vectors />} />
+                <Route path="clients" element={<Clients />} />
+                <Route path="notifications" element={<Notifications />} />
+                <Route path="profile" element={<Profile />} />
+                {/* Add more salesman-specific routes here */}
+            </Routes>
+        </ProtectedRoute>
     );
 };
 

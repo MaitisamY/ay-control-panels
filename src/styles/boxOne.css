@@ -7,11 +7,7 @@
     padding: 0;
     width: auto;
     height: auto;
-    /* backdrop-filter: blur(25px);
-    background-color: rgba(0, 0, 05, 0.05); 
-    box-shadow: 0 0 8px -2px rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px; */
+    animation: zoomIn 2s ease-in-out;
 }
 
 .boxOne a {
@@ -25,6 +21,7 @@
     border-radius: 10px;
     cursor: pointer;
     color: var(--text-color);
+    font-family: var(--font-tilt-neon);
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     opacity: 0.85;

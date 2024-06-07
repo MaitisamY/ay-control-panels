@@ -5,6 +5,8 @@
     --active-link-color: #fff;
     --box-shadow: 0 0 0 4px #3b48ff;
     --outline: 2px solid #3b48ff9d;
+    --font-tilt-neon: 'Tilt Neon', sans-serif;
+    --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
 .green-theme {
