@@ -1,6 +1,6 @@
 import '../../styles/InnerAppStyles.css'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
@@ -20,6 +20,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
+import useTitleProvider from '../../utils/TitleProvider.jsx';
 
 const Invoices = () => {
 
@@ -28,10 +29,11 @@ const Invoices = () => {
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
+    const { title } = useTitleProvider();
 
     const sidebarRef = useRef(null);
 
-    document.title = "Invoices | @organization";
+    document.title = title;
 
     return (
         <div 

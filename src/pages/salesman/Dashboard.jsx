@@ -6,6 +6,7 @@ import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
 import useMassImports from '../../utils/MassImports.jsx';
+import useTitleProvider from '../../utils/TitleProvider.jsx';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoX, GoSignOut } from 'react-icons/go';
@@ -28,10 +29,11 @@ const SalesmanDashboard = () => {
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
+    const { title } = useTitleProvider();
 
     const sidebarRef = useRef(null);
 
-    document.title = "Salesman Dashboard | @organization";
+    document.title = title;
 
     return (
         <div 

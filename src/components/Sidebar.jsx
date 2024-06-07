@@ -1,15 +1,18 @@
 import '../styles/sidebar.css'
 
+import { useOrganization } from '../context/OrganizationContext'
 import { Link, useLocation } from 'react-router-dom'
+import { TfiPencilAlt } from 'react-icons/tfi'
 
 function Sidebar({ menu }) {
 
     const { pathname } = useLocation()
+    const { organization } = useOrganization()
 
     return (
         <div className="sidebar">
             <div className="sidebar-header">
-                <h1>@organization</h1>
+                <h1>{organization} <a><TfiPencilAlt /></a></h1>
             </div>
             <ul>
                 {

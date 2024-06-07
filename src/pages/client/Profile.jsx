@@ -1,11 +1,12 @@
 import '../../styles/InnerAppStyles.css'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
 import useMassImports from '../../utils/MassImports.jsx';
+import useTitleProvider from '../../utils/TitleProvider.jsx';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen } from 'react-icons/bs';
 import { GoLog, GoX, GoSignOut } from 'react-icons/go';
@@ -28,10 +29,11 @@ const Profile = () => {
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
+    const { title } = useTitleProvider();
 
     const sidebarRef = useRef(null);
 
-    document.title = "Profile | @organization";
+    document.title = title;
 
     return (
         <div 

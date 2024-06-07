@@ -1,11 +1,12 @@
 import '../../styles/InnerAppStyles.css'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
 import useMassImports from '../../utils/MassImports.jsx';
+import useTitleProvider from '../../utils/TitleProvider.jsx';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoPeople, GoLog, GoX, GoSignOut } from 'react-icons/go';
@@ -28,10 +29,11 @@ const Notifications = () => {
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
+    const { title } = useTitleProvider();
 
     const sidebarRef = useRef(null);
 
-    document.title = "Notifications | @organization";
+    document.title = title;
 
     return (
         <div 
