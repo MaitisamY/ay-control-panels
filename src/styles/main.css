@@ -206,7 +206,7 @@ main {
 .container h1 span .loader {
     font-size: 20px;
     color: var(--text-color);
-    animation: spin 2.9s linear forwards;
+    animation: spin 4.8s linear forwards;
 } 
 
 .chart-container {
