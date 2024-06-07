@@ -41,3 +41,11 @@ main {
     padding: 10px;
     box-sizing: border-box;
 }
+
+/* Responsive */
+
+@media screen and (max-width: 630px) {
+    .container {
+        width: 100%;
+    }
+}

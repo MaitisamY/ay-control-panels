@@ -1,5 +1,5 @@
 import '../styles/header.css';
-import Wave from '../assets/wave-2.svg';
+// import Wave from '../assets/wave-2.svg';
 
 function Header({ children }) {
 
@@ -8,7 +8,7 @@ function Header({ children }) {
             <div className="header-content">
                 {children}
             </div>
-            <img className="header-wave" src={Wave} alt="wave" />
+            {/* <img className="header-wave" src={Wave} alt="wave" /> */}
         </header>
     )
 }

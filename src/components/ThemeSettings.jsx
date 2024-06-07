@@ -1,19 +1,29 @@
 import '../styles/themeSettings.css';
 
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useThemeContainerStore from '../stores/useThemeContainerStore.js';
 import useThemeStore from '../stores/useThemeStore.js';
+import useNotificationThresholdStore from '../stores/useNotificationThresholdStore.js';
 import { CSSTransition } from 'react-transition-group';
-import { GoX, GoCheck } from 'react-icons/go';
+import { GoX } from 'react-icons/go';
 import { FcServices, FcAbout } from 'react-icons/fc';
 import { TfiBell } from 'react-icons/tfi';
+import ThemeSelector from './ThemeSelector.jsx';
 
 function ThemeSettings() {
     const { isOpen, toggleThemeContainer } = useThemeContainerStore();
     const { theme, setTheme } = useThemeStore();
 
+    const { threshold, setThreshold } = useNotificationThresholdStore();
+
     const ref = useRef(null);
     const nodeRef = useRef(null); 
+    const thresholdRef = useRef(null);
+
+    const handleThresholdChange = (event) => {
+        setThreshold(event.target.value);
+        thresholdRef.current.blur();  
+    };
 
     const handleOutsideClick = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
@@ -46,65 +56,52 @@ function ThemeSettings() {
                     <h2>Theme settings <FcServices /></h2>
 
                     <div className="selection-container">
-                        <div className="theme-selector" onClick={() => setTheme('default')} role="button">
-                            <div className={`theme-selector-box ${theme === 'default' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Default</label>
-                        </div>
-
-                        <div className="theme-selector" onClick={() => setTheme('green')} role="button">
-                            <div className={`theme-selector-box ${theme === 'green' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Green</label>
-                        </div>
-
-                        <div className="theme-selector" onClick={() => setTheme('red')} role="button">
-                            <div className={`theme-selector-box ${theme === 'red' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Red</label>
-                        </div>
-
-                        <div className="theme-selector" onClick={() => setTheme('orange')} role="button">
-                            <div className={`theme-selector-box ${theme === 'orange' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Orange</label>
-                        </div>
-
-                        <div className="theme-selector" onClick={() => setTheme('yellow')} role="button">
-                            <div className={`theme-selector-box ${theme === 'yellow' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Yellow</label>
-                        </div>
-
-                        <div className="theme-selector" onClick={() => setTheme('black&white')} role="button">
-                            <div className={`theme-selector-box ${theme === 'black&white' ? 'active' : ''}`}>
-                                <div className="theme-selector-box-inner">
-                                    <span><GoCheck /></span>
-                                </div>
-                            </div>
-                            <label>Grey</label>
-                        </div>
+                        <ThemeSelector
+                            themes={[
+                                { 
+                                    label: 'Default', 
+                                    activeClassName: theme === 'default' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('default') 
+                                },
+                                { 
+                                    label: 'Green', 
+                                    activeClassName: theme === 'green' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('green') 
+                                },
+                                { 
+                                    label: 'Red', 
+                                    activeClassName: theme === 'red' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('red') 
+                                },
+                                { 
+                                    label: 'Orange', 
+                                    activeClassName: theme === 'orange' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('orange') 
+                                },
+                                { 
+                                    label: 'Yellow', 
+                                    activeClassName: theme === 'yellow' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('yellow') 
+                                },
+                                { 
+                                    label: 'Grayish', 
+                                    activeClassName: theme === 'black&white' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('black&white') 
+                                },
+                            ]}
+                        />
                     </div>
 
                     <h2>Notification settings <FcAbout /></h2>
                     <div className="selection-container">
                         <h5>Set the notification threshold</h5>
-                        <select name="limit" id="limit">
+                        <select
+                            name="limit"
+                            id="limit"
+                            value={threshold}
+                            onChange={handleThresholdChange}
+                            ref={thresholdRef}
+                        >
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>

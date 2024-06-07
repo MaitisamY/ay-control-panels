@@ -1,4 +1,3 @@
-import './global.css'
 import './styles/OuterAppStyles.css'
 import 'react-toastify/dist/ReactToastify.css';
 

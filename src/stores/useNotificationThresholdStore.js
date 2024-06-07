@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 import { toast } from 'react-toastify';
 
-const useThemeStore = create((set) => ({
-    theme: localStorage.getItem('theme') || 'default',
-    setTheme: (theme) => {
-        set({ theme });
-        localStorage.setItem('theme', theme);
+const useNotificationThresholdStore = create((set) => ({
+    threshold: parseInt(localStorage.getItem('threshold')) || 10,
+    setThreshold: (threshold) => {
+        set({ threshold }),
+        localStorage.setItem('threshold', parseInt(threshold));
 
-        toast.success(`Theme turned to ${theme.charAt(0).toUpperCase() + theme.slice(1)}!`, {
+        toast.success(`Threshold set to ${threshold}!`, {
             position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -20,4 +20,4 @@ const useThemeStore = create((set) => ({
     },
 }));
 
-export default useThemeStore;
+export default useNotificationThresholdStore;

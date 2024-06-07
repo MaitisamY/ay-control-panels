@@ -1,9 +1,16 @@
 import '../../styles/InnerAppStyles.css'
 
+import { useRef } from 'react';
 import useThemeStore from '../../stores/useThemeStore.js';
+import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
+import { useAuth } from '../../context/AuthContext';
+import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
+
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
-import { GoTools, GoPeople, GoLog } from 'react-icons/go';
+import { GoPeople, GoLog, GoX, GoSignOut } from 'react-icons/go';
 import { GrGroup, GrIteration, GrCurrency, GrLineChart } from 'react-icons/gr';
+import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings } from 'react-icons/tfi';
+import { CSSTransition } from 'react-transition-group';
 
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
@@ -11,10 +18,16 @@ import BoxTwo from "../../components/BoxTwo";
 import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
+import ResponsiveSidebar from "../../components/ResponsiveSidebar";
 
 const AdminDashboard = () => {
 
+    const { logout } = useAuth();
     const { theme } = useThemeStore();
+    const { toggleThemeContainer } = useThemeContainerStore();
+    const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
+    
+    const sidebarRef = useRef(null);
 
     return (
         <div 
@@ -27,6 +40,43 @@ const AdminDashboard = () => {
                             : '' }`}
         >
             <ThemeSettings />
+
+            {/* Responsive logo, sidebar toggle and sidebar */}
+            <div className="responsive-menu">
+                <h1 className="logo">@organization</h1>
+                <a className="toggler" onClick={onToggleSidebar}><TfiAlignJustify /></a>
+            </div>
+            
+            <CSSTransition
+                in={isSidebarOpen}
+                timeout={300}
+                classNames="responsive-sidebar"
+                unmountOnExit
+                nodeRef={sidebarRef}
+            >
+                <div ref={sidebarRef} className="responsive-sidebar">
+                    <div className="elements-holder">
+                        <a className="close-btn" onClick={onToggleSidebar}><GoX /></a>
+                        <ResponsiveSidebar 
+                            menu={[
+                                { title: "Dashboard", link: "/admin/dashboard", icon: <BsSpeedometer2 /> },
+                                { title: "Orders", link: "/admin/orders", icon: <BsBox /> },
+                                { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote /> },
+                                { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen /> },
+                                { title: "Salesmen", link: "/admin/salesmen", icon: <GoPeople /> },
+                                { title: "Clients", link: "/admin/clients", icon: <BsPeople /> },
+                                { title: "Invoices", link: "/admin/invoices", icon: <GoLog /> },
+                                { title: "Notifications", link: "/admin/notifications", icon: <TfiBell /> },
+                                { title: "Profile", link: "/admin/profile", icon: <TfiUser /> },
+                                { title: "Settings", onHandleClick: () => toggleThemeContainer(), icon: <TfiSettings /> },
+                                { title: "Logout", onHandleClick: () => logout(), icon: <GoSignOut /> },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </CSSTransition>
+            {/* Responsive logo, sidebar toggle and sidebar */}
+
             <Header>
                 <div className="level-one">
                     <BoxOne />
@@ -56,6 +106,153 @@ const AdminDashboard = () => {
                             { title: "Invoices", link: "/admin/invoices", icon: <GoLog /> },
                         ]} 
                     />
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, placeat qui corporis!
+                        </p>
+                    </div>
                 </div>
             </Main>
         </div>

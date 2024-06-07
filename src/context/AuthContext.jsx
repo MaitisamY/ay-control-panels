@@ -1,9 +1,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import useResponsiveSidebarStore from '../stores/useResponsiveSidebarStore';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
+    const { onToggleSidebar } = useResponsiveSidebarStore();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -18,6 +21,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
+        onToggleSidebar();
         setUser(null);
         localStorage.removeItem('user');
     };
