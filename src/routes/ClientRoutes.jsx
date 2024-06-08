@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../private/ProtectedRoute';
 import ClientDashboard from '../pages/client/Dashboard';
@@ -9,8 +10,15 @@ import Notifications from '../pages/client/Notifications';
 import Inbox from '../pages/client/Inbox';
 import Profile from '../pages/client/Profile';
 import NotFound from '../pages/client/NotFound';
+import { useOrganization } from '../context/OrganizationContext';
 
 function ClientRoutes() {
+    const { organization } = useOrganization();
+
+    useEffect(() => {
+        console.log('Organization in App:', organization);
+        // You can perform any side effects here based on organization changes
+    }, [organization]);
     return (
         <ProtectedRoute roles={['client']}>
             <Routes>

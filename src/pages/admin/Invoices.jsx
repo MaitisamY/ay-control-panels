@@ -5,7 +5,8 @@ import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
-import useMassImports from '../../utils/MassImports.jsx';
+import useMassImports from '../../utils/MassImports';
+import useTitleProvider from '../../utils/TitleProvider';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoPeople, GoLog, GoX, GoSignOut } from 'react-icons/go';
@@ -20,7 +21,6 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import useTitleProvider from '../../utils/TitleProvider.jsx';
 
 const Invoices = () => {
 

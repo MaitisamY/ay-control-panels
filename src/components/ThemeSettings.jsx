@@ -6,7 +6,6 @@ import useThemeStore from '../stores/useThemeStore.js';
 import useNotificationThresholdStore from '../stores/useNotificationThresholdStore.js';
 import { CSSTransition } from 'react-transition-group';
 import { GoX } from 'react-icons/go';
-import { FcServices, FcAbout } from 'react-icons/fc';
 import { TfiBell } from 'react-icons/tfi';
 import ThemeSelector from './ThemeSelector.jsx';
 
@@ -53,7 +52,7 @@ function ThemeSettings() {
             <div ref={nodeRef} className="theme-container"> 
                 <div className="elements-holder" ref={ref}> 
                     <a className="close-btn" onClick={toggleThemeContainer}><GoX /></a>
-                    <h2>Theme settings <FcServices /></h2>
+                    <h2>Theme settings</h2>
 
                     <div className="selection-container">
                         <ThemeSelector
@@ -92,7 +91,7 @@ function ThemeSettings() {
                         />
                     </div>
 
-                    <h2>Notification settings <FcAbout /></h2>
+                    <h2>Notification settings</h2>
                     <div className="selection-container">
                         <h5>Set the notification threshold</h5>
                         <select

@@ -42,6 +42,7 @@
 }
 
 .sidebar .sidebar-header {
+    position: relative;
     width: 100%;
     height: 50px;
     display: flex;
@@ -62,7 +63,7 @@
     font-family: var(--font-tilt-neon);
 }
 
-.sidebar .sidebar-header h1 a {
+.sidebar .sidebar-header .opener-closer {
     position: absolute;
     top: -8px;
     right: -10px;
@@ -73,7 +74,24 @@
     cursor: pointer;
 }
 
-.sidebar .sidebar-header h1 a:hover {
+.sidebar .sidebar-header .opener-closer:hover {
+    color: #000;
+}
+
+.sidebar .sidebar-header .done-button {
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #3A3937;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.sidebar .sidebar-header .done-button:hover {
     color: #000;
 }
 

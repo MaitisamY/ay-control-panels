@@ -112,11 +112,12 @@ const Login = () => {
                 </div>
 
                 <div className="outer-app-box-body">
-                    <form onSubmit={formik.handleSubmit}>
+                    <form onSubmit={formik.handleSubmit} autoComplete="off">
                         <div className="custom-group">
                             <span><FaAt /></span>
                             <input
                                 className="field"
+                                type="text"
                                 id="email"
                                 name="email"
                                 value={formik.values.email} 

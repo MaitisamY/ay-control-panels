@@ -112,32 +112,36 @@
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: stretch;
+    align-items: stretch; 
     flex-direction: row;
     gap: 0;
     padding: 0;
     margin: 15px 0 0 0;
-    height: auto;
+    height: 50px;
     background-color: transparent;
     border: 1px solid #000;
     border-radius: 5px;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field {
-    width: 100%;
-    height: auto;
-    padding: 10px;
+    flex: 1;
+    height: 100%;
+    padding: 12px 6px;
     border-radius: 0 5px 5px 0;
     color: #000;
     background-color: transparent;
     border: none;
     font-size: 15px;
-    margin: 0;
+    margin: 0 0 0 46px;
     outline: none;
     transition: all 0.2s ease-in-out;
     resize: none;
     font-family: var(--font-tilt-neon);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field:hover {
@@ -151,19 +155,22 @@
 }
 
 .outer-app-box .outer-app-box-body form .custom-group span {
-    font-size: 15px;
-    padding: 14px;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    padding: 10px 12px;
     margin: 0;
-    border-right: 1px solid #000;
-    font-size: 15px;
+    font-size: 16px;
     width: auto;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0;
-    transition: all 0.2s ease-in-out
+    transition: all 0.2s ease-in-out;
+    border-right: 1px solid #000;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group a {

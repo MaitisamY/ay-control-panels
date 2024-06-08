@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../private/ProtectedRoute';
 import AdminDashboard from '../pages/admin/Dashboard';
@@ -10,8 +11,14 @@ import Invoices from '../pages/admin/Invoices';
 import Notifications from '../pages/admin/Notifications';
 import Profile from '../pages/admin/Profile';
 import NotFound from '../pages/admin/NotFound';
-
+import { useOrganization } from '../context/OrganizationContext';
 function AdminRoutes() {
+    const { organization } = useOrganization();
+
+    useEffect(() => {
+        console.log('Organization in App:', organization);
+        // You can perform any side effects here based on organization changes
+    }, [organization]);
     return (
         <ProtectedRoute roles={['admin']}>
             <Routes>

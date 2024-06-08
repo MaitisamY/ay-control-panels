@@ -87,7 +87,7 @@ const Signup = () => {
                 </div>
 
                 <div className="outer-app-box-body">
-                    <form onSubmit={formik.handleSubmit}>
+                    <form onSubmit={formik.handleSubmit} autoComplete="off">
 
                         <div className="custom-group">
                             <span><FaRegUser /></span>

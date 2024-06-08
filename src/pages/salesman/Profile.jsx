@@ -5,8 +5,8 @@ import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
 import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
-import useMassImports from '../../utils/MassImports.jsx';
-import useTitleProvider from '../../utils/TitleProvider.jsx';
+import useMassImports from '../../utils/MassImports';
+import useTitleProvider from '../../utils/TitleProvider';
 
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoX, GoSignOut } from 'react-icons/go';

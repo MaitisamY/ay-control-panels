@@ -16,45 +16,45 @@ import ClientRoutes from './routes/ClientRoutes';
 
 const App = () => {
     return (
-        <AuthProvider>
-            <OrganizationProvider>
-                <Router>
-                    <ToastContainer />
-                    <Routes>
-                        <Route path="*" element={<NotFound />} />
-                        <Route path="/" element={<Login />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<Signup />} />
-                        <Route path="/support" element={<Support />} />
-                        <Route
-                            path="/salesman/*"
-                            element={
-                                <ProtectedRoute roles={['salesman']}>
-                                    <SalesmanRoutes />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/admin/*"
-                            element={
-                                <ProtectedRoute roles={['admin']}>
-                                    <AdminRoutes />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/client/*"
-                            element={
-                                <ProtectedRoute roles={['client']}>
-                                    <ClientRoutes />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
-                    </Routes>
-                </Router>
-            </OrganizationProvider>
-        </AuthProvider>
+        <OrganizationProvider>
+            <AuthProvider>
+            <Router>
+                <ToastContainer />
+                <Routes>
+                    <Route path="*" element={<NotFound />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/support" element={<Support />} />
+                    <Route
+                        path="/salesman/*"
+                        element={
+                            <ProtectedRoute roles={['salesman']}>
+                                <SalesmanRoutes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/*"
+                        element={
+                            <ProtectedRoute roles={['admin']}>
+                                <AdminRoutes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/client/*"
+                        element={
+                            <ProtectedRoute roles={['client']}>
+                                <ClientRoutes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
+                </Routes>
+            </Router>
+            </AuthProvider>
+        </OrganizationProvider>
     );
 };
 
