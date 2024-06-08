@@ -84,8 +84,8 @@ function ThemeSettings() {
                                 },
                                 { 
                                     label: 'Grayish', 
-                                    activeClassName: theme === 'black&white' ? 'active' : '', 
-                                    onHandleTheme: () => setTheme('black&white') 
+                                    activeClassName: theme === 'grayish' ? 'active' : '', 
+                                    onHandleTheme: () => setTheme('grayish') 
                                 },
                             ]}
                         />

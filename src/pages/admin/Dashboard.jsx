@@ -14,6 +14,7 @@ import { GrGroup, GrIteration, GrCurrency, GrLineChart } from 'react-icons/gr';
 import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiReload } from 'react-icons/tfi';
 import { CSSTransition } from 'react-transition-group';
 
+import InnerAppContainer from '../../components/InnerAppContainer';
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
 import BoxTwo from "../../components/BoxTwo";
@@ -36,15 +37,7 @@ const AdminDashboard = () => {
     document.title = title;
 
     return (
-        <div 
-            className={`inner-app-container 
-            ${ theme === 'green' ? 'green-theme' 
-                : theme === 'red' ? 'red-theme' 
-                    : theme === 'orange' ? 'orange-theme' 
-                        : theme === 'yellow' ? 'yellow-theme' 
-                            : theme === 'black&white' ? 'black-and-white-theme'
-                            : '' }`}
-        >
+        <InnerAppContainer theme={theme}>
             <ThemeSettings />
 
             {/* Responsive logo, sidebar toggle and sidebar */}
@@ -128,7 +121,7 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </Main>
-        </div>
+        </InnerAppContainer>
     )
 };
 

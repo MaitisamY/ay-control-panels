@@ -45,7 +45,7 @@
     --outline: 2px solid #ffff009d;
 }
 
-.black-and-white-theme {
+.grayish-theme {
     --header-gradient: linear-gradient(45deg, #3333331c, #e4e4e4bd);
     --sidebar-gradient: linear-gradient(120deg, #e4e4e4bd, #3333331c);
     --active-link: #000;

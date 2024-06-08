@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import useResponsiveSidebarStore from '../stores/useResponsiveSidebarStore';
+import { addStorageEventListener } from '../utils/eventListeners.js';
 
 const AuthContext = createContext();
 
@@ -14,6 +15,10 @@ export const AuthProvider = ({ children }) => {
             setUser(JSON.parse(storedUser));
         }
     }, []);
+
+    addStorageEventListener('user', (newValue) => {
+        setUser(JSON.parse(newValue));
+    });
 
     const login = (userData) => {
         setUser(userData);
