@@ -22,6 +22,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
+import DashboardContent from '../../components/admin/DashboardContent';
 
 const AdminDashboard = () => {
 
@@ -106,20 +107,7 @@ const AdminDashboard = () => {
                         ]} 
                     />
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <h1>
-                            Dashboard 
-                            <span>
-                                {
-                                    isStatusReloading ? 
-                                    <TfiReload className="loader" /> 
-                                    : 'The system is upto date.'
-                                }
-                            </span>
-                        </h1>
-                    </div>
-                </div>
+                <DashboardContent status={isStatusReloading} />
             </Main>
         </InnerAppContainer>
     )

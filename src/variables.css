@@ -3,6 +3,7 @@
     --sidebar-gradient: linear-gradient(120deg, #cfebfed5, #afe8ffd2);
     --active-link: #3b48ff;
     --active-link-color: #fff;
+    --btn-color: #000;
     --box-shadow: 0 0 0 4px #3b48ff;
     --outline: 2px solid #3b48ff9d;
     --font-tilt-neon: 'Tilt Neon', sans-serif;

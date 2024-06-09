@@ -1,38 +1,55 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useReducer, useEffect } from 'react';
 import useResponsiveSidebarStore from '../stores/useResponsiveSidebarStore';
 import { addStorageEventListener } from '../utils/eventListeners.js';
+
+// Initial state
+export const initialState = {
+    user: JSON.parse(localStorage.getItem('user')) || null,
+};
+
+// Reducer function
+export const authReducer = (state, action) => {
+    switch (action.type) {
+        case 'LOGIN':
+            return { ...state, user: action.payload };
+        case 'LOGOUT':
+            return { ...state, user: null };
+        default:
+            return state;
+    }
+};
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+    const [state, dispatch] = useReducer(authReducer, initialState);
 
     const { onToggleSidebar } = useResponsiveSidebarStore();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            dispatch({ type: 'LOGIN', payload: JSON.parse(storedUser) });
         }
     }, []);
 
     addStorageEventListener('user', (newValue) => {
-        setUser(JSON.parse(newValue));
+        dispatch({ type: 'LOGIN', payload: JSON.parse(newValue) });
     });
 
     const login = (userData) => {
-        setUser(userData);
+        dispatch({ type: 'LOGIN', payload: userData });
         localStorage.setItem('user', JSON.stringify(userData));
     };
 
     const logout = () => {
         onToggleSidebar();
-        setUser(null);
+        dispatch({ type: 'LOGOUT' });
         localStorage.removeItem('user');
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user: state.user, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

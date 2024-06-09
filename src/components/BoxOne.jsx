@@ -22,7 +22,7 @@ function BoxOne() {
                 </div>
             }
             <div className="boxOne">
-                <a><span><TfiUser /></span> {user?.name.slice(0, 10)} {user?.name.length > 10 ? '...' : ''} </a>
+                <a>Hi! {user?.name.slice(0, 10)} {user?.name.length > 10 ? '...' : ''} </a>
             </div>
             <div className="boxOne">
                 <a onClick={logout}><span><GoSignOut /></span></a>
