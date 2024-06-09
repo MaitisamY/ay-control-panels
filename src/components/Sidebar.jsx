@@ -62,7 +62,7 @@ function Sidebar({ menu }) {
         <div className="sidebar-wrapper">
             <div className="role-span">
                 {user?.role && user?.role.charAt(0).toUpperCase() + user?.role.slice(1)}
-                <MdCircle style={{ color: isActive ? 'rgb(50, 197, 50)' : 'rgb(197, 50, 50)' }} size={14} />
+                <MdCircle className={isActive ? 'active' : 'inactive'} size={14} />
             </div>
             <div className="sidebar">
                 <div className="sidebar-header">

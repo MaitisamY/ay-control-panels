@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -30,7 +29,7 @@ const Login = () => {
         onSubmit: async (values) => {
             // try {
             //     setIsLoading(true);
-            //     const response = await axios.post('/api/login', values);
+            //     const response = await request (To be made);
             //     setTimeout(() => {
             //         login(response.data);
             //         setIsLoading(false);
