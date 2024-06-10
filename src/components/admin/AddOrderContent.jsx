@@ -126,7 +126,7 @@ const AddOrderContent = ({ status }) => {
             </div>
 
             <div className="row p-5">
-                <form>
+                <form onSubmit={handleSubmit}>
                     {
                         activeMarker === 1 ?
                         <>
@@ -219,11 +219,12 @@ const AddOrderContent = ({ status }) => {
                                 <h2>Additional Detail & Attachments</h2>
                             </div>
                             <div className="row-flex-center">
-                                <div className="column-5">
+                                <div className="column-4">
                                     <label htmlFor="notes">Additional notes (if any)</label>
                                     <textarea id="notes" name="notes" placeholder="Enter notes here" rows="3"></textarea>
                                 </div>
-                                <div className="column-5">
+                                <div className="column-2"></div>
+                                <div className="column-4">
                                     <div className="row-flex-center">
                                         <button 
                                             type="button" 

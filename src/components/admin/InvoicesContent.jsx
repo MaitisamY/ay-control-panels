@@ -1,11 +1,11 @@
 import { TfiReload } from 'react-icons/tfi'
 
-const DashboardContent = ({ status }) => {
+const InvoiceContent = ({ status }) => {
     return (
         <div className="container">
             <div className="row">
                 <h1>
-                    Dashboard 
+                    Invoices
                     <span>
                         {
                             status ? 
@@ -17,10 +17,10 @@ const DashboardContent = ({ status }) => {
             </div>
 
             <div className="row p-5">
-                <h2 style={{ color: 'GrayText' }}>Charts and graphs (coming soon)</h2>
+                <h2 style={{ color: 'GrayText' }}>Invoice data (coming soon)</h2>
             </div>
         </div>
     )
 }
 
-export default DashboardContent
+export default InvoiceContent
