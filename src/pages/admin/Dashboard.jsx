@@ -1,5 +1,6 @@
 import '../../styles/InnerAppStyles.css'
 
+/* Contexts, hooks, stores and utils */
 import { useRef } from 'react';
 import useThemeStore from '../../stores/useThemeStore.js';
 import useResponsiveSidebarStore from '../../stores/useResponsiveSidebarStore.js';
@@ -7,13 +8,16 @@ import { useAuth } from '../../context/AuthContext';
 import useThemeContainerStore from '../../stores/useThemeContainerStore.js';
 import useMassImports from '../../utils/MassImports';
 import useTitleProvider from '../../utils/TitleProvider';
+import { useMenu } from '../../utils/Menu'
 
+/* Packages */
 import { BsSpeedometer2, BsBox, BsChatRightQuote, BsVectorPen, BsPeople } from 'react-icons/bs';
 import { GoPeople, GoLog, GoX, GoSignOut } from 'react-icons/go';
 import { GrGroup, GrIteration, GrCurrency, GrLineChart } from 'react-icons/gr';
-import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings, TfiReload } from 'react-icons/tfi';
+import { TfiAlignJustify, TfiBell, TfiUser, TfiSettings } from 'react-icons/tfi';
 import { CSSTransition } from 'react-transition-group';
 
+/* Components */
 import InnerAppContainer from '../../components/InnerAppContainer';
 import Header from "../../partials/Header";
 import BoxOne from "../../components/BoxOne";
@@ -26,15 +30,22 @@ import DashboardContent from '../../components/admin/DashboardContent';
 
 const AdminDashboard = () => {
 
+    /* Destructuring of Contexts, hooks, stores and utils */
     const { logout } = useAuth();
     const { theme } = useThemeStore();
     const { toggleThemeContainer } = useThemeContainerStore();
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
     const { title } = useTitleProvider();
+    const [ adminMenu ] = useMenu();
 
+    /* Sidebar menu */
+    const sidebarMenu = adminMenu.filter(menu => menu.isShown === true);
+
+    /* Sidebar ref for NodeRef */
     const sidebarRef = useRef(null);
 
+    /* Current document's title */
     document.title = title;
 
     return (
@@ -59,17 +70,17 @@ const AdminDashboard = () => {
                         <a className="close-btn" onClick={onToggleSidebar}><GoX /></a>
                         <ResponsiveSidebar 
                             menu={[
-                                { title: "Dashboard", link: "/admin/dashboard", icon: <BsSpeedometer2 /> },
-                                { title: "Orders", link: "/admin/orders", icon: <BsBox /> },
-                                { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote /> },
-                                { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen /> },
-                                { title: "Salesmen", link: "/admin/salesmen", icon: <GoPeople /> },
-                                { title: "Clients", link: "/admin/clients", icon: <BsPeople /> },
-                                { title: "Invoices", link: "/admin/invoices", icon: <GoLog /> },
-                                { title: "Notifications", link: "/admin/notifications", icon: <TfiBell /> },
-                                { title: "Profile", link: "/admin/profile", icon: <TfiUser /> },
-                                { title: "Settings", onHandleClick: () => toggleThemeContainer(), icon: <TfiSettings /> },
-                                { title: "Logout", onHandleClick: () => logout(), icon: <GoSignOut /> },
+                                { title: "Dashboard", link: "/admin/dashboard", icon: <BsSpeedometer2 />, childMenu: true },
+                                { title: "Orders", link: "/admin/orders", icon: <BsBox />, childMenu: false },
+                                { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote />, childMenu: false },
+                                { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen />, childMenu: false },
+                                { title: "Salesmen", link: "/admin/salesmen", icon: <GoPeople />, childMenu: false },
+                                { title: "Clients", link: "/admin/clients", icon: <BsPeople />, childMenu: false },
+                                { title: "Invoices", link: "/admin/invoices", icon: <GoLog />, childMenu: false },
+                                { title: "Notifications", link: "/admin/notifications", icon: <TfiBell />, childMenu: false },
+                                { title: "Profile", link: "/admin/profile", icon: <TfiUser />, childMenu: false },
+                                { title: "Settings", onHandleClick: () => toggleThemeContainer(), icon: <TfiSettings />, childMenu: false },
+                                { title: "Logout", onHandleClick: () => logout(), icon: <GoSignOut />, childMenu: false },
                             ]}
                         />
                     </div>
@@ -95,17 +106,7 @@ const AdminDashboard = () => {
             </Header>
             <Main>
                 <div className="bar">
-                    <Sidebar 
-                        menu={[
-                            { title: "Dashboard", link: "/admin/dashboard", icon: <BsSpeedometer2 /> },
-                            { title: "Orders", link: "/admin/orders", icon: <BsBox /> },
-                            { title: "Quotes", link: "/admin/quotes", icon: <BsChatRightQuote /> },
-                            { title: "Vectors", link: "/admin/vectors", icon: <BsVectorPen /> },
-                            { title: "Salesmen", link: "/admin/salesmen", icon: <GoPeople /> },
-                            { title: "Clients", link: "/admin/clients", icon: <BsPeople /> },
-                            { title: "Invoices", link: "/admin/invoices", icon: <GoLog /> },
-                        ]} 
-                    />
+                    <Sidebar menu={sidebarMenu} />
                 </div>
                 <DashboardContent status={isStatusReloading} />
             </Main>

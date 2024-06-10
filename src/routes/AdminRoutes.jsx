@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../private/ProtectedRoute';
 import AdminDashboard from '../pages/admin/Dashboard';
 import Orders from '../pages/admin/Orders';
+import AddOrder from '../pages/admin/AddOrder';
 import Quotes from '../pages/admin/Quotes';
 import Vectors from '../pages/admin/Vectors';
 import Salesmen from '../pages/admin/Salesman';
@@ -17,7 +18,6 @@ function AdminRoutes() {
 
     useEffect(() => {
         console.log('Organization in App:', organization);
-        // You can perform any side effects here based on organization changes
     }, [organization]);
     return (
         <ProtectedRoute roles={['admin']}>
@@ -25,6 +25,7 @@ function AdminRoutes() {
                 <Route path="*" element={<NotFound />} />
                 <Route path="dashboard" element={<AdminDashboard />} />
                 <Route path="orders" element={<Orders />} />
+                <Route path="place-order" element={<AddOrder />} />
                 <Route path="quotes" element={<Quotes />} />
                 <Route path="vectors" element={<Vectors />} />
                 <Route path="salesmen" element={<Salesmen />} />

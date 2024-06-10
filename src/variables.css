@@ -5,7 +5,11 @@
     --active-link-color: #fff;
     --btn-color: #000;
     --box-shadow: 0 0 0 4px #3b48ff;
+    --active-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.04), 0 0 0 20px rgba(0, 0, 0, 0.03);
     --outline: 2px solid #3b48ff9d;
+    --input-bg: #0011fa0a;
+    --radio-hover-effect: 0 0 0 4px rgba(0, 0, 0, 0.04);
+    --radio-active-effect: 0 0 0 4px rgba(0, 0, 0, 0.04), 0 0 0 8px rgba(0, 0, 0, 0.03);
     --font-tilt-neon: 'Tilt Neon', sans-serif;
     --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
 }
@@ -17,6 +21,7 @@
     --active-link-color: #fff;
     --box-shadow: 0 0 0 4px #089242;
     --outline: 2px solid #0892429d;
+    --input-bg: #08924209;
 }
 
 .red-theme {
@@ -26,6 +31,7 @@
     --active-link-color: #fff;
     --box-shadow: 0 0 0 4px #ff0000;
     --outline: 2px solid #ff00009d;
+    --input-bg: #ff000009;
 }
 
 .orange-theme {
@@ -35,6 +41,7 @@
     --active-link-color: #000;
     --box-shadow: 0 0 0 4px #ffa500;
     --outline: 2px solid #ffa5009d;
+    --input-bg: #ffa50009;
 }
 
 .yellow-theme {
@@ -44,6 +51,7 @@
     --active-link-color: #000;
     --box-shadow: 0 0 0 4px #ffff00;
     --outline: 2px solid #ffff009d;
+    --input-bg: #ffff0009;
 }
 
 .grayish-theme {
@@ -53,4 +61,5 @@
     --active-link-color: #fff;
     --box-shadow: 0 0 0 4px #000;
     --outline: 2px solid #000;
+    --input-bg: #00000009;
 }

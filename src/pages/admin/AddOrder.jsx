@@ -26,9 +26,9 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import DashboardContent from '../../components/admin/DashboardContent';
+import AddOrderContent from '../../components/admin/AddOrderContent';
 
-const Profile = () => {
+const Orders = () => {
 
     /* Destructuring of Contexts, hooks, stores and utils */
     const { logout } = useAuth();
@@ -108,23 +108,10 @@ const Profile = () => {
                 <div className="bar">
                     <Sidebar menu={sidebarMenu} />
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <h1>
-                            Profile 
-                            <span>
-                                {
-                                    isStatusReloading ? 
-                                    <TfiReload className="loader" /> 
-                                    : 'The system is upto date.'
-                                }
-                            </span>
-                        </h1>
-                    </div>
-                </div>
+                <AddOrderContent />
             </Main>
         </InnerAppContainer>
     )
 };
 
-export default Profile;
+export default Orders;

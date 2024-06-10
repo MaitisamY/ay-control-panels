@@ -67,89 +67,14 @@ html {
     width: 100%;
 }
 
-.btn {
-    position: relative;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
     margin: 0;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--btn-color);
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.6s ease, border 0.3s ease; 
-    border: 2px solid #80808025;
-    border-radius: 25px;
-    font-family: var(--font-tilt-neon);
-    overflow: hidden;
-    background: var(--header-gradient);
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%; 
-    background-color: var(--active-link);
-    transition: width 0.3s ease;
-    z-index: 0;
-}
-
-.btn:hover::before {
-    width: 100%;
-}
-
-.btn:hover {
-    color: var(--active-link-color); 
-    border: 2px solid #fff;
-    box-shadow: var(--box-shadow);
-}
-
-.btn span {
-    position: relative;
-    z-index: 1; 
-}
-
-.btn:focus,
-.btn:active {
-    color: var(--active-link-color); 
-    border: 2px solid #fff;
-    box-shadow: var(--box-shadow);
-}
-
-.btn:focus::before,
-.btn:active::before {
-    width: 100%;
-}
-
-.btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btn:disabled:hover {
-    color: var(--btn-color);
-    border: 2px solid #8a8a8a9c;
-    box-shadow: none;
-}
-
-.btn:disabled::before {
-    width: 0;
-}
-
-.btn.active {
-    color: var(--active-link-color); 
-    border: 2px solid #fff;
-    box-shadow: var(--box-shadow);
-}
-
-.btn.active::before {
-    width: 100%;
-}
-
-.btn.active:hover {
-    color: var(--active-link-color); 
-    border: 2px solid #fff;
-    box-shadow: var(--box-shadow);
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }

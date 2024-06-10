@@ -11,12 +11,48 @@
     margin: 0;
 }
 
-.inner-app-container input,
-.inner-app-container select {
+.inner-app-container form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.inner-app-container form label {
+    margin: 10px 0 0 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.inner-app-container form label.radio {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.inner-app-container form input,
+.inner-app-container form select,
+.inner-app-container form textarea {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.inner-app-container form input,
+.inner-app-container form select,
+.inner-app-container form textarea {
     width: 100%;
     height: auto;
     border: 1px solid #00000034;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 10px 10px;
     box-sizing: border-box;
     font-size: 16px;
@@ -25,16 +61,142 @@
     transition: all 0.2s ease-in-out;
     margin: 0;
     background-color: transparent;
+    resize: none;
 }
 
-.inner-app-container input:hover,
-.inner-app-container select:hover {
-    background-color: #00000010;
+.inner-app-container form input[type=radio] {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    border-radius: 50%; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    position: relative;
 }
 
-.inner-app-container input:focus,
-.inner-app-container input:active,
-.inner-app-container select:focus,
-.inner-app-container select:active {
-    box-shadow: var(--box-shadow)
+.inner-app-container form input[type=radio]::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    background: radial-gradient(circle, transparent 50%, var(--active-link) 50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0); 
+    transition: transform 0.2s ease-in-out;
+}
+
+.inner-app-container form input[type=radio]:checked::before {
+    transform: scale(0.5); 
+}
+
+.inner-app-container form input[type=radio]:hover {
+    box-shadow: var(--radio-hover-effect);
+    background-color: transparent;
+}
+
+.inner-app-container form input[type=radio]:checked {
+    box-shadow: var(--radio-active-effect);
+}
+
+.inner-app-container form input:hover,
+.inner-app-container form select:hover,
+.inner-app-container form textarea:hover {
+    background-color: var(--input-bg);
+}
+
+.inner-app-container form input:focus,
+.inner-app-container form input:active,
+.inner-app-container form select:focus,
+.inner-app-container form select:active,
+.inner-app-container form textarea:focus,
+.inner-app-container form textarea:active {
+    box-shadow: var(--active-box-shadow);
+    background-color: var(--input-bg);
+}
+
+.inner-app-container .btn {
+    position: relative;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--btn-color);
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.6s ease, border 0.3s ease; 
+    border: none;
+    border-radius: 15px;
+    font-family: var(--font-tilt-neon);
+    overflow: hidden;
+    background: var(--header-gradient);
+    box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+.inner-app-container .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%; 
+    background-color: var(--active-link);
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+.inner-app-container .btn:hover::before {
+    width: 100%;
+}
+
+.inner-app-container .btn:hover {
+    color: var(--active-link-color); 
+}
+
+.inner-app-container .btn span {
+    position: relative;
+    z-index: 1; 
+}
+
+.inner-app-container .btn:focus,
+.inner-app-container .btn:active {
+    color: var(--active-link-color); 
+    box-shadow: var(--active-box-shadow);
+}
+
+.inner-app-container .btn:focus::before,
+.inner-app-container .btn:active::before {
+    width: 100%;
+}
+
+.inner-app-container .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.inner-app-container .btn:disabled:hover {
+    color: var(--btn-color);
+    background-color: transparent;
+}
+
+.inner-app-container .btn:disabled::before {
+    width: 0;
+}
+
+.inner-app-container .btn.active {
+    color: var(--active-link-color); 
+    box-shadow: var(--active-box-shadow);
+}
+
+.inner-app-container .btn.active::before {
+    width: 100%;
+}
+
+.inner-app-container .btn.active:hover {
+    color: var(--active-link-color); 
+    box-shadow: var(--active-box-shadow);
 }

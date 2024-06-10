@@ -17,7 +17,7 @@ main {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
-    padding: 20px;
+    padding: 10px 30px 30px 30px;
     box-sizing: border-box;
 }
 
@@ -29,6 +29,45 @@ main {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row-flex-start {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    flex-shrink: 1;
+    gap: 30px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row-flex-center {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    flex-shrink: 1;
+    gap: 30px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row-flex-around {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+    flex-shrink: 1;
+    gap: 30px;
     padding: 0;
     box-sizing: border-box;
 }
@@ -180,7 +219,7 @@ main {
 .container h1 {
     font-size: 32px;
     font-weight: 500;
-    margin: 0;
+    margin: 0 0 15px 0;
     padding: 0;
     display: flex;
     justify-content: space-between;
@@ -188,6 +227,7 @@ main {
     gap: 10px;
     width: 100%;
     font-family: var(--font-tilt-neon);
+    white-space: nowrap;
 }
 
 .container h1 span {
@@ -208,6 +248,57 @@ main {
     color: var(--text-color);
     animation: spin 4.8s linear forwards;
 } 
+
+.container .wizard-static-slider {
+    position: relative;
+    width: 90%;
+    height: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 0 10px 5%;
+    background-color: #00000015;
+    border-radius: 25px;
+}
+
+.container .wizard-static-slider .slider-progress {
+    background-color: #000000;
+    height: 10px;
+    transition: all 0.2s ease-in-out;
+    animation: progress 0.2s ease-in-out;
+}
+
+.container .wizard-static-slider .marker {
+    position: absolute;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%);
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #000000cb;
+    font-weight: 550;
+    font-size: 14px;
+    font-family: var(--font-tilt-neon);
+    user-select: none;
+    z-index: 1;
+}
+
+.container .wizard-static-slider .marker.active {
+    color: #fff;
+    background-color: #000000;
+}
 
 .chart-container {
     width: 45%;
