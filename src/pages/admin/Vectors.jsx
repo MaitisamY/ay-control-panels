@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import DashboardContent from '../../components/admin/DashboardContent';
+import VectorContent from "../../components/admin/VectorContent";
 
 const Vectors = () => {
 
@@ -108,20 +108,7 @@ const Vectors = () => {
                 <div className="bar">
                     <Sidebar menu={sidebarMenu} />
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <h1>
-                            Vectors 
-                            <span>
-                                {
-                                    isStatusReloading ? 
-                                    <TfiReload className="loader" /> 
-                                    : 'The system is upto date.'
-                                }
-                            </span>
-                        </h1>
-                    </div>
-                </div>
+                <VectorContent />
             </Main>
         </InnerAppContainer>
     )

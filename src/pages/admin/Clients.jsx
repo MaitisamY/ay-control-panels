@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import DashboardContent from '../../components/admin/DashboardContent';
+import ClientContent from '../../components/admin/ClientContent';
 
 const Clients = () => {
 
@@ -37,10 +37,10 @@ const Clients = () => {
     const { isSidebarOpen, onToggleSidebar } = useResponsiveSidebarStore();
     const { isStatusReloading  } = useMassImports();
     const { title } = useTitleProvider();
-    const { menu } = useMenu();
+    const [ adminMenu ] = useMenu();
 
     /* Sidebar menu */
-    const sidebarMenu = menu.admin.filter(menu => menu.isShown === true);
+    const sidebarMenu = adminMenu.filter(menu => menu.isShown === true);
 
     /* Sidebar ref for NodeRef */
     const sidebarRef = useRef(null);
@@ -108,20 +108,7 @@ const Clients = () => {
                 <div className="bar">
                     <Sidebar menu={sidebarMenu} />
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <h1>
-                            Clients 
-                            <span>
-                                {
-                                    isStatusReloading ? 
-                                    <TfiReload className="loader" /> 
-                                    : 'The system is upto date.'
-                                }
-                            </span>
-                        </h1>
-                    </div>
-                </div>
+                <ClientContent />
             </Main>
         </InnerAppContainer>
     )

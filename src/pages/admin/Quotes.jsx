@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import DashboardContent from '../../components/admin/DashboardContent';
+import QuoteContent from "../../components/admin/QuoteContent";
 
 const Quotes = () => {
 
@@ -108,20 +108,7 @@ const Quotes = () => {
                 <div className="bar">
                     <Sidebar menu={sidebarMenu} />
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <h1>
-                            Quotes 
-                            <span>
-                                {
-                                    isStatusReloading ? 
-                                    <TfiReload className="loader" /> 
-                                    : 'The system is upto date.'
-                                }
-                            </span>
-                        </h1>
-                    </div>
-                </div>
+                <QuoteContent />
             </Main>
         </InnerAppContainer>
     )

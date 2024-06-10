@@ -38,6 +38,40 @@
     color: #000;
 }
 
+.inner-app-container input,
+.inner-app-container select,
+.inner-app-container textarea {
+    width: 100%;
+    height: auto;
+    border: 1px solid #00000034;
+    border-radius: 15px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    margin: 0;
+    background-color: transparent;
+    resize: none;
+}
+
+.inner-app-container input:hover,
+.inner-app-container select:hover,
+.inner-app-container textarea:hover {
+    background-color: var(--input-bg);
+}
+
+.inner-app-container input:focus,
+.inner-app-container input:active,
+.inner-app-container select:focus,
+.inner-app-container select:active,
+.inner-app-container textarea:focus,
+.inner-app-container textarea:active {
+    box-shadow: var(--active-box-shadow);
+    background-color: var(--input-bg);
+}
+
 .inner-app-container form input,
 .inner-app-container form select,
 .inner-app-container form textarea {
