@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import InvoiceContent from "../../components/admin/InvoicesContent";
+import InvoiceContent from "../../components/admin/InvoicesContent"
 
 const Invoices = () => {
 

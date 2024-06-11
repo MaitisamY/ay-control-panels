@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import ClientContent from '../../components/admin/ClientContent';
+import ClientContent from '../../components/admin/ClientContent'
 
 const Clients = () => {
 

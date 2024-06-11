@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import QuoteContent from "../../components/admin/QuoteContent";
+import QuoteContent from "../../components/admin/QuoteContent"
 
 const Quotes = () => {
 

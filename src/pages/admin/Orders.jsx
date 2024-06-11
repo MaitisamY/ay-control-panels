@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import OrderContent from '../../components/admin/OrderContent';
+import OrderContent from '../../components/admin/OrderContent'
 
 const Orders = () => {
 

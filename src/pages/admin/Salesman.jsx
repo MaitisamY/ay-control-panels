@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import SalesmanContent from "../../components/admin/SalesmanContent";
+import SalesmanContent from "../../components/admin/SalesmanContent"
 
 const Salesman = () => {
 

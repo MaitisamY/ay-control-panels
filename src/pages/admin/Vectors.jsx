@@ -26,7 +26,7 @@ import Main from "../../partials/Main";
 import Sidebar from "../../components/Sidebar";
 import ThemeSettings from "../../components/ThemeSettings";
 import ResponsiveSidebar from "../../components/ResponsiveSidebar";
-import VectorContent from "../../components/admin/VectorContent";
+import VectorContent from "../../components/admin/VectorContent"
 
 const Vectors = () => {
 
