@@ -1,10 +1,9 @@
 import { TfiPlus } from 'react-icons/tfi'
-import useOrders from '../../hooks/useOrders'
+import useForms from '../../hooks/useForms'
 const PlaceOrderContent = () => {
 
     const {
         formik,
-        attachments,
         addRef,
         nextRef,
         prevRef,
@@ -16,7 +15,7 @@ const PlaceOrderContent = () => {
         wizardMarkers,
         nextSlide,
         prevSlide,
-    } = useOrders()
+    } = useForms()
 
     return (
         <div className="container">
@@ -29,9 +28,9 @@ const PlaceOrderContent = () => {
                 </h1>
             </div>
 
-            <div className="row-flex-start mt-5">
+            <div className="row-flex-start">
 
-                <div className="column-1">
+                <div className="column-1 mt-5">
                     <div className="row-flex-center">
                         <div className="wizard-static-slider">
                             <div 
@@ -63,21 +62,25 @@ const PlaceOrderContent = () => {
                             {
                                 activeMarker === 1 ?
                                 <>
-                                    <div className="row pl-20">
+                                    <div className="row-flex-center pl-10">
                                         <h2>General Details</h2>
                                     </div>
-                                    <div className="row-flex-start">
+
+                                    <div className="row-flex-center">
                                         <div className="column-5">
-                                            <label htmlFor="orderName">Order name</label>
+                                            <label htmlFor="name">Order name</label>
                                             <input 
                                                 type="text" 
-                                                id="orderName" 
-                                                name="orderName" 
-                                                placeholder="E.g. Order-123" 
+                                                id="name" 
+                                                name="name" 
+                                                placeholder="E.g. Custom order #12" 
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.orderName}
                                             />
-                                            {formik.errors.orderName ? <div className="error">{formik.errors.orderName}</div> : null}
+                                            {formik.touched.name && formik.errors.name ? (
+                                                <div className="error">{formik.errors.name}</div>
+                                            ) : null}
                                         </div>
                                         <div className="column-5">
                                             <label htmlFor="po">PO</label>
@@ -86,11 +89,15 @@ const PlaceOrderContent = () => {
                                                 id="po" name="po" 
                                                 placeholder="E.g. PO-123"
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.po} 
                                             />
-                                            {formik.errors.po ? <div className="error">{formik.errors.po}</div> : null}
+                                            {formik.touched.po && formik.errors.po ? (
+                                                <div className="error">{formik.errors.po}</div>
+                                            ) : null}
                                         </div>
                                     </div>
+
                                     <div className="row-flex-start">
                                         <div className="column-5">
                                             <label htmlFor="colors">Number of colors</label>
@@ -101,29 +108,41 @@ const PlaceOrderContent = () => {
                                                 placeholder="E.g. 2" 
                                                 inputMode="numeric" 
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.colors}
                                             />
-                                            {formik.errors.colors ? <div className="error">{formik.errors.colors}</div> : null}
+                                            {formik.touched.colors && formik.errors.colors ? (
+                                                <div className="error">{formik.errors.colors}</div>
+                                            ) : null}
                                         </div>
                                         <div className="column-5">
                                             <label htmlFor="format">Required Format</label>
-                                            <select id="format" name="format" onChange={formik.handleChange} value={formik.values.format}>
-                                                <option selected>Open this select menu</option>
+                                            <select 
+                                                id="format" 
+                                                name="format" 
+                                                onChange={formik.handleChange} 
+                                                onBlur={formik.handleBlur} 
+                                                value={formik.values.format}
+                                            >
+                                                <option defaultValue={''}>Selection menu</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-                                            {formik.errors.format ? <div className="error">{formik.errors.format}</div> : null}
+                                            {formik.touched.format && formik.errors.format ? (
+                                                <div className="error">{formik.errors.format}</div>
+                                            ) : null}
                                         </div>
                                     </div>
                                 </>
                                 : activeMarker === 2 ?
                                 <>
-                                    <div className="row pl-20">
+                                    <div className="row-flex-center pl-10">
                                         <h2>Options and Dimensions</h2>
                                     </div>
-                                    <div className="row-flex-start">
-                                        <div className="column-3">
+
+                                    <div className="row-flex-center">
+                                        <div className="column-2">
                                             <label htmlFor="width">Width(inches)</label>
                                             <input 
                                                 type="number" 
@@ -132,11 +151,52 @@ const PlaceOrderContent = () => {
                                                 placeholder="E.g. 10" 
                                                 inputMode="numeric" 
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.width}
                                             />
-                                            {formik.errors.width ? <div className="error">{formik.errors.width}</div> : null}
+                                            {formik.touched.width && formik.errors.width ? (
+                                                <div className="error">{formik.errors.width}</div>
+                                            ) : null}
+                                        </div>
+                                        <div className="column-3">
+                                            <label htmlFor="placement">Select placement</label>
+                                            <select 
+                                                id="placement" 
+                                                name="placement" 
+                                                onChange={formik.handleChange} 
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.placement}
+                                            >
+                                                <option defaultValue={''}>Selection menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            {formik.touched.placement && formik.errors.placement ? (
+                                                <div className="error">{formik.errors.placement}</div>
+                                            ) : null}
                                         </div>
                                         <div className="column-4">
+                                            <label htmlFor="fabric">Select fabric</label>
+                                            <select 
+                                                id="fabric" 
+                                                name="fabric" 
+                                                onChange={formik.handleChange} 
+                                                onBlur={formik.handleBlur} 
+                                                value={formik.values.fabric}
+                                            >
+                                                <option defaultValue={''}>Selection menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            {formik.touched.fabric && formik.errors.fabric ? (
+                                                <div className="error">{formik.errors.fabric}</div>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                    <div className="row-flex-start">
+                                        <div className="column-2">
                                             <label htmlFor="height">Height(inches)</label>
                                             <input 
                                                 type="number" 
@@ -145,57 +205,54 @@ const PlaceOrderContent = () => {
                                                 placeholder="E.g. 10" 
                                                 inputMode="numeric"
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.height} 
                                             />
-                                            {formik.errors.height ? <div className="error">{formik.errors.height}</div> : null}
+                                            {formik.touched.height && formik.errors.height ? (
+                                                <div className="error">{formik.errors.height}</div>
+                                            ) : null}
                                         </div>
                                         <div className="column-3">
-                                            <label htmlFor="fabric">Select fabric</label>
-                                            <select id="fabric" name="fabric" onChange={formik.handleChange} value={formik.values.fabric}>
-                                                <option defaultValue={''}>Open this select menu</option>
+                                            <label htmlFor="blending">Do You Require Blending?</label>
+                                            <select 
+                                                id="blending" 
+                                                name="blending" 
+                                                onChange={formik.handleChange} 
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.blending}
+                                            >
+                                                <option defaultValue={''}>Selection menu</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-                                            {formik.errors.fabric ? <div className="error">{formik.errors.fabric}</div> : null}
-                                        </div>
-                                    </div>
-                                    <div className="row-flex-start">
-                                        <div className="column-3">
-                                            <label htmlFor="placement">Select placement</label>
-                                            <select id="placement" name="placement" onChange={formik.handleChange} value={formik.values.placement}>
-                                                <option defaultValue={''}>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            {formik.errors.placement ? <div className="error">{formik.errors.placement}</div> : null}
+                                            {formik.touched.blending && formik.errors.blending ? (
+                                                <div className="error">{formik.errors.blending}</div>
+                                            ) : null}
                                         </div>
                                         <div className="column-4">
-                                            <label htmlFor="blending">Do You Require Blending?</label>
-                                            <select id="blending" name="blending" onChange={formik.handleChange} value={formik.values.blending}>
-                                                <option defaultValue={''}>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            {formik.errors.blending ? <div className="error">{formik.errors.blending}</div> : null}
-                                        </div>
-                                        <div className="column-3">
                                             <label htmlFor="rush">Do you need this order as a rush?</label>
-                                            <select id="rush" name="rush" onChange={formik.handleChange} value={formik.values.rush}>
-                                                <option defaultValue={''}>Open this select menu</option>
+                                            <select 
+                                                id="rush" 
+                                                name="rush" 
+                                                onChange={formik.handleChange} 
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.rush}
+                                            >
+                                                <option defaultValue={''}>Selection menu</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-                                            {formik.errors.rush ? <div className="error">{formik.errors.rush}</div> : null}
+                                            {formik.touched.rush && formik.errors.rush ? (
+                                                <div className="error">{formik.errors.rush}</div>
+                                            ) : null}
                                         </div>
                                     </div>
                                 </>
                                 : activeMarker === 3 ?
                                 <>
-                                    <div className="row-flex-around pb-4">
+                                    <div className="row-flex-around pl-10">
                                         <h2>Additional Detail</h2>
                                     </div>
                                     <div className="row-flex-center">
@@ -207,60 +264,66 @@ const PlaceOrderContent = () => {
                                                 placeholder="Enter notes here" 
                                                 rows="3"
                                                 onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
                                                 value={formik.values.notes}
                                             ></textarea>
-                                            {formik.errors.notes ? <div className="error">{formik.errors.notes}</div> : null}
+                                            {formik.touched.notes && formik.errors.notes ? (
+                                                <div className="error">{formik.errors.notes}</div>
+                                            ) : null}
                                         </div>
                                     </div>
                                 </>
                                 : activeMarker === 4 ?
                                 <>
-                                    <div className="row-flex-around pb-4">
+                                    <div className="row-flex-around pl-10">
                                         <h2>Attachments</h2>
                                     </div>
                                     <div className="row-flex-center">
-                                        <div className="column-10">
+                                    <div className="column-10">
+                                        <div className="row-flex-center">
+                                            <button 
+                                                type="button" 
+                                                className="btn w-64 pt-2 pb-2 pr-10 pl-10" 
+                                                onClick={createAttachments}
+                                                ref={addRef}
+                                                disabled={formik.values.attachments.length === 3}
+                                            >
+                                                <span><TfiPlus /> Add attachment</span>
+                                            </button>
+                                        </div>
+                                        {formik.values.attachments && formik.values.attachments.length === 3 && (
                                             <div className="row-flex-center">
-                                                <button 
-                                                    type="button" 
-                                                    className="btn w-64 pt-2 pb-2 pr-10 pl-10" 
-                                                    onClick={createAttachments}
-                                                    ref={addRef}
-                                                    disabled={attachments.length === 3 ? true : false}
-                                                >
-                                                    <span><TfiPlus /> Add attachment</span>
-                                                </button>
+                                                <p className="text-undone">Max limit reached</p>
                                             </div>
-                                            {
-                                                attachments && 
-                                                attachments.length === 3 && 
-                                                <div className="row-flex-center">
-                                                    <p className="text-undone">Max limit reached</p>
+                                        )}
+                                        <div className="row-flex-start">
+                                            {formik.values.attachments.map((attachment, index) => (
+                                                <div className="column-3" key={index}>
+                                                    <label htmlFor={`attachment-${index}`}>{index + 1}.</label>
+                                                    <input 
+                                                        type="file" 
+                                                        id={`attachment-${index}`} 
+                                                        name={`attachment-${index}`} 
+                                                        onChange={(e) => handleChangeVariant(index, e.target.files[0])}
+                                                        onBlur={formik.handleBlur}
+                                                    />
+                                                    {formik.touched.attachments && formik.touched.attachments[index] && 
+                                                        formik.errors.attachments && formik.errors.attachments[index] ? (
+                                                        <div className="error">{formik.errors.attachments[index]}</div>
+                                                    ) : null}
+                                                    <a className="cursor-pointer ml-5" onClick={() => removeAttachments(index)}>Remove</a>
                                                 </div>
-                                            }
-                                            <div className="row-flex-start">
-                                                {attachments.map((attachment, index) => (
-                                                    <div className="column-3" key={index}>
-                                                        <label htmlFor={`attachment-${index}`}>{attachments.indexOf(attachment) + 1}.</label>
-                                                        <input 
-                                                            type="file" 
-                                                            id={`attachment-${index}`} 
-                                                            name={`attachment-${index}`} 
-                                                            onChange={(e) => handleChangeVariant(index, e.target.files[0])}
-                                                        />
-                                                        <a className="cursor-pointer ml-5" onClick={() => removeAttachments(index)}>Remove</a>
-                                                    </div>
-                                                ))}
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
+                                </div>
                                 </>
                                 :
                                 <>
-                                    <div className="row-flex-center pb-4">
+                                    <div className="row-flex-center pl-10">
                                         <h2>Preview</h2>
                                     </div>
-                                    <div className="row-flex-center pb-4">
+                                    <div className="row-flex-center">
                                         <h4>Preview of the order will be shown here</h4>
                                     </div>
                                 </>

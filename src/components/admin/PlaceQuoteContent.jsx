@@ -1,5 +1,3 @@
-import useQuotes from "../../hooks/useQuotes"
-
 const PlaceQuoteContent = () => {
     return (
         <div className="container">
