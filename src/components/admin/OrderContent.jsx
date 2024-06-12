@@ -7,17 +7,13 @@ const OrderContent = ({ status }) => {
                 <h1>
                     Orders
                     <span>
-                        {
-                            status ? 
-                            <TfiReload className="loader" /> 
-                            : 'The system is upto date.'
-                        }
+                        The system is upto date.
                     </span>
                 </h1>
             </div>
 
             <div className="row p-5">
-                
+                <h2 style={{ color: 'GrayText' }}>Orders data (coming soon)</h2>
             </div>
         </div>
     )

@@ -7,11 +7,7 @@ const ClientContent = ({ status }) => {
                 <h1>
                     Clients
                     <span>
-                        {
-                            status ? 
-                            <TfiReload className="loader" /> 
-                            : 'The system is upto date.'
-                        }
+                        The system is upto date.
                     </span>
                 </h1>
             </div>

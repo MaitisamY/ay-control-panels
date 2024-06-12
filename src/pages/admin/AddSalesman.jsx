@@ -1,9 +1,9 @@
 import '../../styles/InnerAppStyles.css'
 
-/* Contexts, hooks, stores and utils */
+/* Contexts, hooks, stors and utils */
 import useThemeStore from '../../stores/useThemeStore.js';
 import useTitleProvider from '../../utils/TitleProvider';
-import { useMenu } from '../../utils/Menu';
+import { useMenu } from '../../utils/Menu'
 
 /* Components */
 import InnerAppContainer from '../../components/InnerAppContainer';
@@ -13,9 +13,9 @@ import Main from '../../partials/Main';
 import Sidebar from '../../components/Sidebar';
 import ThemeSettings from '../../components/ThemeSettings';
 import ResponsiveSidebar, { ResponsiveMenuBar } from '../../components/ResponsiveSidebar';
-import OrderContent from '../../components/admin/OrderContent';
+import AddSalesmanContent from '../../components/admin/AddSalesmanContent';
 
-const Orders = () => {
+const AddSalesman = () => {
 
     /* Destructuring of Contexts, hooks, stores and utils */
     const { theme } = useThemeStore();
@@ -32,20 +32,20 @@ const Orders = () => {
         <InnerAppContainer theme={theme}>
             <ThemeSettings />
 
-            {/* Responsive sidebar toggle and sidebar */}
+            {/* Responsive logo, sidebar toggle and sidebar */}
             <ResponsiveMenuBar />
-            <ResponsiveSidebar menu={adminMenu}/>
-            {/* Responsive sidebar toggle and sidebar */}
+            <ResponsiveSidebar menu={adminMenu} />
+            {/* Responsive logo, sidebar toggle and sidebar */}
 
             <Header>
                 <HeaderContent />
             </Header>
             <Main>
                 <Sidebar menu={sidebarMenu} />
-                <OrderContent />
+                <AddSalesmanContent />
             </Main>
         </InnerAppContainer>
     )
 };
 
-export default Orders;
+export default AddSalesman;

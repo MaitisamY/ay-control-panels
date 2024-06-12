@@ -1,11 +1,10 @@
-import { TfiReload } from 'react-icons/tfi'
+const PlaceVectorContent = () => {
 
-const QuoteContent = ({ status }) => {
     return (
         <div className="container">
             <div className="row">
                 <h1>
-                    Quote
+                    Place Vector
                     <span>
                         The system is upto date.
                     </span>
@@ -13,10 +12,10 @@ const QuoteContent = ({ status }) => {
             </div>
 
             <div className="row p-5">
-                <h2 style={{ color: 'GrayText' }}>Quotes data (coming soon)</h2>
+                <h2 style={{ color: 'GrayText' }}>Vector placement (coming soon)</h2>
             </div>
         </div>
     )
 }
 
-export default QuoteContent
+export default PlaceVectorContent

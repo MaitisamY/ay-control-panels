@@ -311,7 +311,7 @@ main {
 
 /* Responsive */
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 767px) {
     .container {
         width: 100%;
     }

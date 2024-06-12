@@ -6,7 +6,6 @@ import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa6';
 const NotFound = () => {
 
     const { pathname } = useLocation();
-    // If we wanna get the last segment only --> const lastSegment = pathname.split('/').filter(Boolean).pop();
 
     document.title = '404 - Not Found';
 

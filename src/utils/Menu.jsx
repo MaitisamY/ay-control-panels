@@ -120,45 +120,45 @@ export const useMenu = () => {
             icon: < GoLog />,
             hasChildMenu: false
         },
-        {
-            isShown: true,
-            title: "Management",
-            link: "",
-            icon: < BsTools />,
-            hasChildMenu: true,
-            childMenu: [
-                {
-                    parent: "Management",
-                    title: "Add format",
-                    link: "/admin/add-format",
-                },
-                {
-                    parent: "Management",
-                    title: "Format data",
-                    link: "/admin/formats",
-                },
-                {
-                    parent: "Management",
-                    title: "Add fabric",
-                    link: "/admin/add-fabric",
-                },
-                {
-                    parent: "Management",
-                    title: "Fabric data",
-                    link: "/admin/fabrics",
-                },
-                {
-                    parent: "Management",
-                    title: "Add placement",
-                    link: "/admin/add-placement",
-                },
-                {
-                    parent: "Management",
-                    title: "Placement data",
-                    link: "/admin/placements",
-                },
-            ],
-        },
+        // {
+        //     isShown: true,
+        //     title: "Management",
+        //     link: "",
+        //     icon: < BsTools />,
+        //     hasChildMenu: true,
+        //     childMenu: [
+        //         {
+        //             parent: "Management",
+        //             title: "Add format",
+        //             link: "/admin/add-format",
+        //         },
+        //         {
+        //             parent: "Management",
+        //             title: "Format data",
+        //             link: "/admin/formats",
+        //         },
+        //         {
+        //             parent: "Management",
+        //             title: "Add fabric",
+        //             link: "/admin/add-fabric",
+        //         },
+        //         {
+        //             parent: "Management",
+        //             title: "Fabric data",
+        //             link: "/admin/fabrics",
+        //         },
+        //         {
+        //             parent: "Management",
+        //             title: "Add placement",
+        //             link: "/admin/add-placement",
+        //         },
+        //         {
+        //             parent: "Management",
+        //             title: "Placement data",
+        //             link: "/admin/placements",
+        //         },
+        //     ],
+        // },
         { 
             isShown: false, 
             title: "Notifications", 

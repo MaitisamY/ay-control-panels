@@ -1,11 +1,11 @@
-import { TfiReload } from 'react-icons/tfi'
+import useQuotes from "../../hooks/useQuotes"
 
-const QuoteContent = ({ status }) => {
+const PlaceQuoteContent = () => {
     return (
         <div className="container">
             <div className="row">
                 <h1>
-                    Quote
+                    Place Quote
                     <span>
                         The system is upto date.
                     </span>
@@ -13,10 +13,10 @@ const QuoteContent = ({ status }) => {
             </div>
 
             <div className="row p-5">
-                <h2 style={{ color: 'GrayText' }}>Quotes data (coming soon)</h2>
+                <h2 style={{ color: 'GrayText' }}>Quote placement (coming soon)</h2>
             </div>
         </div>
     )
 }
 
-export default QuoteContent
+export default PlaceQuoteContent

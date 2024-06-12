@@ -11,7 +11,7 @@
 }
 
 .bar {
-    width: 15%;
+    width: 16%;
     height: 80vh;
     position: sticky;
     top: 20px;
@@ -223,7 +223,7 @@
     backdrop-filter: blur(5px);
 }
 
-.sidebar ul li .navigator a {
+.sidebar ul li .navigator h5 {
     font-size: 14px;
     text-decoration: none;
     color: inherit;
@@ -241,11 +241,11 @@
     background-color: #00000011;
 }
 
-.sidebar ul li .navigator a:hover {
+.sidebar ul li .navigator h5:hover {
     background-color: #00000020;
 }
 
-.sidebar ul li .navigator a.open {
+.sidebar ul li .navigator h5.open {
     background-color: var(--active-link);
     color: var(--active-link-color);
 }
@@ -297,25 +297,25 @@
 
 @media screen and (max-width: 1500px) {
     .bar {
-        width: 16%;
+        width: 19%;
     }
 }
 
 @media screen and (max-width: 1350px) {
     .bar {
-        width: 18%;
+        width: 20%;
     }
 }
 
 @media screen and (max-width: 1275px) {
     .bar {
-        width: 20%;
+        width: 21%;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .bar {
-        width: 23%;
+        width: 22%;
     }
 }
 
@@ -339,42 +339,35 @@
 
 @media screen and (max-width: 1050px) {
     .bar {
-        width: 32%;
+        width: 31%;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .bar {
-        width: 35%;
+        width: 36%;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .bar {
         width: 38%;
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .bar {
-        width: 43%;
-        margin-top: -630px;
+        width: 40%;
     }
 }
 
-@media screen and (max-width: 650px) {
-    .bar {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 767px) {
     .bar {
         display: none;
     }
 
     .responsive-menu {
-        width: 84%;
+        width: 94%;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -383,7 +376,7 @@
         gap: 10px;
         position: fixed;
         top: 20px;
-        left: 8%;
+        left: 3%;
         z-index: 99;
         background-color: rgba(0, 0, 0, 0.05);
         backdrop-filter: blur(12px);
@@ -459,7 +452,7 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 20px;
-        padding: 40px 25px;
+        padding: 10px;
         margin: 0;
         z-index: 999;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -470,11 +463,23 @@
         -ms-overflow-style: none;
     }
 
-    .responsive-sidebar .elements-holder .close-btn {
-        display: block;
-        position: absolute;
-        top: 10px;
-        right: 20px;
+    .responsive-sidebar .elements-holder .responsive-sidebar-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .responsive-sidebar .elements-holder .responsive-sidebar-header .logo {
+        font-size: 24px;
+        width: fit-content;
+    }
+
+    .responsive-sidebar .elements-holder .responsive-sidebar-header .close-btn {
         cursor: pointer;
         font-size: 40px;
         font-weight: 800;
@@ -496,8 +501,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 5px;
-        padding: 30px 20px;
-        box-sizing: border-box;
+        padding: 20px;
     }
     
     .responsive-sidebar .elements-holder ul li {
@@ -534,5 +538,46 @@
         color: var(--active-link-color);
         background-color: var(--active-link);
         backdrop-filter: blur(5px);
+    }
+
+    .responsive-sidebar .elements-holder ul li .navigator h5 {
+        font-size: 14px;
+        text-decoration: none;
+        color: inherit;
+        margin-left: auto;
+        transition: all 0.2s ease-in-out;
+        padding: 5px;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 25px;
+        height: 25px;
+        background-color: #00000011;
+    }
+    
+    .responsive-sidebar .elements-holder ul li .navigator h5:hover {
+        background-color: #00000020;
+    }
+    
+    .responsive-sidebar .elements-holder ul li .navigator h5.open {
+        background-color: var(--active-link);
+        color: var(--active-link-color);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .responsive-menu {
+        width: 88%;
+        left: 6%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .responsive-menu {
+        width: 83%;
+        left: 8.5%;
     }
 }

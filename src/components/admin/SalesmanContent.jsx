@@ -7,11 +7,7 @@ const SalesmanContent = ({ status }) => {
                 <h1>
                     Salesman 
                     <span>
-                        {
-                            status ? 
-                            <TfiReload className="loader" /> 
-                            : 'The system is upto date.'
-                        }
+                        The system is upto date.
                     </span>
                 </h1>
             </div>

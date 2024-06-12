@@ -6,7 +6,7 @@ const useTitleProvider = () => {
     const { pathname } = useLocation()
 
     const lastSegment = pathname.split('/').filter(Boolean).pop();
-    const title = `${lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1)} | ${organization}`
+    const title = `${lastSegment.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} | ${organization}`
 
     return { title }
 }

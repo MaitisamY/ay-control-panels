@@ -79,105 +79,107 @@ function Sidebar({ menu }) {
     }, [menu, pathname, dropdownManuallyChanged]); 
 
     return (
-        <div className="sidebar-wrapper">
-            <div className="role-span">
-                {user?.role && user?.role.charAt(0).toUpperCase() + user?.role.slice(1)}
-                <MdCircle className={isActive ? 'active' : 'inactive'} size={14} />
-            </div>
-            <div className="sidebar">
-                <div className="sidebar-header">
-                    <h1>
-                        {user && user.role === 'admin' ? (
-                            <>
-                                <a className="opener-closer" onClick={toggleEditMode}>
-                                    {editMode ? <TfiClose /> : <TfiPencilAlt />}
-                                </a>
-                                {editMode ? (
-                                    <>
-                                        <input
-                                            type="text"
-                                            value={organizationName}
-                                            autoFocus
-                                            onChange={handleChange}
-                                            onKeyPress={handleKeyPress}
-                                        />
-                                        <p><strong>Max length:</strong> <span style={{ color: isError ? 'red' : '' }}>16 characters</span></p>
-                                        <a className="done-button" onClick={handleSubmit}>
-                                            <TfiCheckBox />
-                                        </a>
-                                    </>
-                                ) : (
-                                    organization
-                                )}
-                            </>
-                        ) : (
-                            organization
-                        )}
-                    </h1>
+        <div className="bar">
+            <div className="sidebar-wrapper">
+                <div className="role-span">
+                    {user?.role && user?.role.charAt(0).toUpperCase() + user?.role.slice(1)}
+                    <MdCircle className={isActive ? 'active' : 'inactive'} size={14} />
                 </div>
-                <ul>
-                    {menu && menu.map((item, index) => (
-                        <li key={index}>
-                            <Link 
-                                to={item.link && item.link}
-                                onClick={(e) => {
-                                    if (!item.link && item.hasChildMenu) {
-                                        e.preventDefault();
-                                        toggleDropdown(index);
-                                    }
-                                }}
-                                className={`navigator 
-                                    ${
-                                        pathname === item.link ? 'active' 
-                                        : dropdownState[index] ? 'open' 
-                                        : item.childMenu && item.childMenu.some(child => child.link === pathname) ? 'active'
-                                        : ''
-                                    }
-                                `}
-                            >
-                                {item.icon && item.icon} {item.title && item.title} 
-                                {item.hasChildMenu && 
-                                    <a className={dropdownState[index] ? 'open' : ''}>
-                                        {dropdownState[index] ? 
-                                            <span>
-                                                <FaChevronDown 
-                                                    style={{ 
-                                                        transform: 'rotate(180deg)', 
-                                                        transition: 'transform 0.2s ease-in-out',
-                                                        transformOrigin: '50% 50%',
-                                                    }} 
-                                                /> 
-                                            </span>
-                                            : 
-                                            <span>
-                                                <FaChevronDown 
-                                                    style={{ 
-                                                        transition: 'transform 0.2s ease-in-out', 
-                                                        transformOrigin: '50% 50%' 
-                                                    }} 
-                                                />
-                                            </span>
-                                        }
+                <div className="sidebar">
+                    <div className="sidebar-header">
+                        <h1>
+                            {user && user.role === 'admin' ? (
+                                <>
+                                    <a className="opener-closer" onClick={toggleEditMode}>
+                                        {editMode ? <TfiClose /> : <TfiPencilAlt />}
                                     </a>
-                                }
-                            </Link>
-                            {dropdownState[index] && item.hasChildMenu && (
-                                <ol className="sub-menu">
-                                    {item.childMenu && item.childMenu.map((childItem, childIndex) => (
-                                        <li key={childIndex}>
-                                            <Link
-                                                to={childItem.link && childItem.link}
-                                                className={`small-navigator ${pathname === childItem.link ? 'active' : ''}`}
-                                            >
-                                                {childItem.title && childItem.title}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ol>
+                                    {editMode ? (
+                                        <>
+                                            <input
+                                                type="text"
+                                                value={organizationName}
+                                                autoFocus
+                                                onChange={handleChange}
+                                                onKeyPress={handleKeyPress}
+                                            />
+                                            <p><strong>Max length:</strong> <span style={{ color: isError ? 'red' : '' }}>16 characters</span></p>
+                                            <a className="done-button" onClick={handleSubmit}>
+                                                <TfiCheckBox />
+                                            </a>
+                                        </>
+                                    ) : (
+                                        organization
+                                    )}
+                                </>
+                            ) : (
+                                organization
                             )}
-                        </li>
-                    ))}
-                </ul>
+                        </h1>
+                    </div>
+                    <ul>
+                        {menu && menu.map((item, index) => (
+                            <li key={index}>
+                                <Link 
+                                    to={item.link && item.link}
+                                    onClick={(e) => {
+                                        if (!item.link && item.hasChildMenu) {
+                                            e.preventDefault();
+                                            toggleDropdown(index);
+                                        }
+                                    }}
+                                    className={`navigator 
+                                        ${
+                                            pathname === item.link ? 'active' 
+                                            : dropdownState[index] ? 'open' 
+                                            : item.childMenu && item.childMenu.some(child => child.link === pathname) ? 'active'
+                                            : ''
+                                        }
+                                    `}
+                                >
+                                    {item.icon && item.icon} {item.title && item.title} 
+                                    {item.hasChildMenu && 
+                                        <h5 className={dropdownState[index] ? 'open' : ''}>
+                                            {dropdownState[index] ? 
+                                                <span>
+                                                    <FaChevronDown 
+                                                        style={{ 
+                                                            transform: 'rotate(180deg)', 
+                                                            transition: 'transform 0.2s ease-in-out',
+                                                            transformOrigin: '50% 50%',
+                                                        }} 
+                                                    /> 
+                                                </span>
+                                                : 
+                                                <span>
+                                                    <FaChevronDown 
+                                                        style={{ 
+                                                            transition: 'transform 0.2s ease-in-out', 
+                                                            transformOrigin: '50% 50%' 
+                                                        }} 
+                                                    />
+                                                </span>
+                                            }
+                                        </h5>
+                                    }
+                                </Link>
+                                {dropdownState[index] && item.hasChildMenu && (
+                                    <ol className="sub-menu">
+                                        {item.childMenu && item.childMenu.map((childItem, childIndex) => (
+                                            <li key={childIndex}>
+                                                <Link
+                                                    to={childItem.link && childItem.link}
+                                                    className={`small-navigator ${pathname === childItem.link ? 'active' : ''}`}
+                                                >
+                                                    {childItem.title && childItem.title}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

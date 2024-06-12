@@ -7,11 +7,7 @@ const InvoiceContent = ({ status }) => {
                 <h1>
                     Invoices
                     <span>
-                        {
-                            status ? 
-                            <TfiReload className="loader" /> 
-                            : 'The system is upto date.'
-                        }
+                        The system is upto date.
                     </span>
                 </h1>
             </div>
