@@ -124,7 +124,7 @@ const Login = () => {
                                 placeholder="Enter your email"
                             />
                         </div>
-                        {formik.errors.email ? <p>{formik.errors.email}</p> : null}
+                        {formik.touched.email && formik.errors.email ? <p>{formik.errors.email}</p> : null}
                     
                         <div className="custom-group">
                             <span><FaUnlockKeyhole /></span>
@@ -139,7 +139,7 @@ const Login = () => {
                             />
                             <a onClick={togglePassword}>{isShown ? <FaEyeSlash title="Toggle to hide password" /> : <FaEye title="Toggle to show password" />}</a>
                         </div>
-                        {formik.errors.password ? <p>{formik.errors.password}</p> : null}
+                        {formik.touched.password && formik.errors.password ? <p>{formik.errors.password}</p> : null}
                         
                         <button type="submit" className="custom-button" disabled={isLoading}>
                             {

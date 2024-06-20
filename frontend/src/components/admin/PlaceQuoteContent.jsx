@@ -1,6 +1,7 @@
 import { TfiPlus } from 'react-icons/tfi'
 import useForms from '../../hooks/useForms'
-const PlaceOrderContent = () => {
+
+const PlaceQuoteContent = () => {
 
     const {
         formik,
@@ -21,7 +22,7 @@ const PlaceOrderContent = () => {
         <div className="container">
             <div className="row">
                 <h1>
-                    Place Order
+                    Place Quote
                     <span>
                         The system is upto date.
                     </span>
@@ -57,16 +58,28 @@ const PlaceOrderContent = () => {
                 </div>
 
                 <div className="column-10">
-                    <div className="row-flex-start p-5">
+                    <div className="row-flex-start p-2">
                         <form onSubmit={formik.handleSubmit}>
                             {
                                 activeMarker === 1 ?
                                 <>
-                                    <div className="row-flex-center pl-10">
+                                    <div className="row-flex-center">
                                         <h2>General Details</h2>
                                     </div>
 
-                                    <div className="row-flex-center">
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
+                                            <label htmlFor="client">Client</label>
+                                            <input 
+                                                type="text" 
+                                                id="client" 
+                                                name="client" 
+                                                placeholder="Select a client" 
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.client}
+                                            />
+                                        </div>
                                         <div className="column-5">
                                             <label htmlFor="name">Order name</label>
                                             <input 
@@ -76,12 +89,25 @@ const PlaceOrderContent = () => {
                                                 placeholder="E.g. Custom order #12" 
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
-                                                value={formik.values.orderName}
+                                                value={formik.values.name}
                                             />
+                                        </div>
+                                    </div>
+
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
+                                            {formik.touched.client && formik.errors.client ? (
+                                                <div className="error">{formik.errors.client}</div>
+                                            ) : null}
+                                        </div>
+                                        <div className="column-5">
                                             {formik.touched.name && formik.errors.name ? (
                                                 <div className="error">{formik.errors.name}</div>
                                             ) : null}
                                         </div>
+                                    </div>
+
+                                    <div className="row-flex-start">
                                         <div className="column-5">
                                             <label htmlFor="po">PO</label>
                                             <input 
@@ -92,13 +118,7 @@ const PlaceOrderContent = () => {
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.po} 
                                             />
-                                            {formik.touched.po && formik.errors.po ? (
-                                                <div className="error">{formik.errors.po}</div>
-                                            ) : null}
                                         </div>
-                                    </div>
-
-                                    <div className="row-flex-start">
                                         <div className="column-5">
                                             <label htmlFor="colors">Number of colors</label>
                                             <input 
@@ -111,10 +131,23 @@ const PlaceOrderContent = () => {
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.colors}
                                             />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
                                             {formik.touched.colors && formik.errors.colors ? (
                                                 <div className="error">{formik.errors.colors}</div>
                                             ) : null}
                                         </div>
+                                        <div className="column-5">
+                                            {formik.touched.po && formik.errors.po ? (
+                                                <div className="error">{formik.errors.po}</div>
+                                            ) : null}
+                                        </div>
+                                    </div>
+
+                                    <div className="row-flex-start">
                                         <div className="column-5">
                                             <label htmlFor="format">Required Format</label>
                                             <select 
@@ -129,20 +162,27 @@ const PlaceOrderContent = () => {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
+                                        </div>
+                                        <div className="column-5"></div>
+                                    </div>
+
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
                                             {formik.touched.format && formik.errors.format ? (
                                                 <div className="error">{formik.errors.format}</div>
                                             ) : null}
                                         </div>
+                                        <div className="column-5"></div>
                                     </div>
                                 </>
                                 : activeMarker === 2 ?
                                 <>
-                                    <div className="row-flex-center pl-10">
+                                    <div className="row-flex-center">
                                         <h2>Options and Dimensions</h2>
                                     </div>
 
                                     <div className="row-flex-center">
-                                        <div className="column-2">
+                                        <div className="column-5">
                                             <label htmlFor="width">Width(inches)</label>
                                             <input 
                                                 type="number" 
@@ -154,11 +194,37 @@ const PlaceOrderContent = () => {
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.width}
                                             />
+                                        </div>
+                                        <div className="column-5">
+                                            <label htmlFor="height">Height(inches)</label>
+                                            <input 
+                                                type="number" 
+                                                id="height" 
+                                                name="height" 
+                                                placeholder="E.g. 10" 
+                                                inputMode="numeric"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.height} 
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
                                             {formik.touched.width && formik.errors.width ? (
                                                 <div className="error">{formik.errors.width}</div>
                                             ) : null}
                                         </div>
-                                        <div className="column-3">
+                                        <div className="column-5">
+                                            {formik.touched.height && formik.errors.height ? (
+                                                <div className="error">{formik.errors.height}</div>
+                                            ) : null}
+                                        </div>
+                                    </div>
+
+                                    <div className="row-flex-center">
+                                        <div className="column-5">
                                             <label htmlFor="placement">Select placement</label>
                                             <select 
                                                 id="placement" 
@@ -172,11 +238,8 @@ const PlaceOrderContent = () => {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-                                            {formik.touched.placement && formik.errors.placement ? (
-                                                <div className="error">{formik.errors.placement}</div>
-                                            ) : null}
                                         </div>
-                                        <div className="column-4">
+                                        <div className="column-5">
                                             <label htmlFor="fabric">Select fabric</label>
                                             <select 
                                                 id="fabric" 
@@ -190,30 +253,25 @@ const PlaceOrderContent = () => {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
+                                            {formik.touched.placement && formik.errors.placement ? (
+                                                <div className="error">{formik.errors.placement}</div>
+                                            ) : null}
+                                        </div>
+                                        <div className="column-5">
                                             {formik.touched.fabric && formik.errors.fabric ? (
                                                 <div className="error">{formik.errors.fabric}</div>
                                             ) : null}
                                         </div>
                                     </div>
+
                                     <div className="row-flex-start">
-                                        <div className="column-2">
-                                            <label htmlFor="height">Height(inches)</label>
-                                            <input 
-                                                type="number" 
-                                                id="height" 
-                                                name="height" 
-                                                placeholder="E.g. 10" 
-                                                inputMode="numeric"
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                value={formik.values.height} 
-                                            />
-                                            {formik.touched.height && formik.errors.height ? (
-                                                <div className="error">{formik.errors.height}</div>
-                                            ) : null}
-                                        </div>
-                                        <div className="column-3">
-                                            <label htmlFor="blending">Do You Require Blending?</label>
+                                        <div className="column-5">
+                                            <label htmlFor="blending">Do You require blending?</label>
                                             <select 
                                                 id="blending" 
                                                 name="blending" 
@@ -226,37 +284,27 @@ const PlaceOrderContent = () => {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
+                                        </div>
+                                        <div className="column-5"></div>
+                                    </div>
+
+                                    <div className="row-flex-start">
+                                        <div className="column-5">
                                             {formik.touched.blending && formik.errors.blending ? (
                                                 <div className="error">{formik.errors.blending}</div>
                                             ) : null}
                                         </div>
-                                        <div className="column-4">
-                                            <label htmlFor="rush">Do you need this order as a rush?</label>
-                                            <select 
-                                                id="rush" 
-                                                name="rush" 
-                                                onChange={formik.handleChange} 
-                                                onBlur={formik.handleBlur}
-                                                value={formik.values.rush}
-                                            >
-                                                <option defaultValue={''}>Selection menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            {formik.touched.rush && formik.errors.rush ? (
-                                                <div className="error">{formik.errors.rush}</div>
-                                            ) : null}
-                                        </div>
+                                        <div className="column-5"></div>
                                     </div>
                                 </>
                                 : activeMarker === 3 ?
                                 <>
-                                    <div className="row-flex-around pl-10">
+                                    <div className="row-flex-center">
                                         <h2>Additional Detail</h2>
                                     </div>
+
                                     <div className="row-flex-center">
-                                        <div className="column-6">
+                                        <div className="column-8">
                                             <label htmlFor="notes">Additional notes (if any)</label>
                                             <textarea 
                                                 id="notes" 
@@ -275,30 +323,29 @@ const PlaceOrderContent = () => {
                                 </>
                                 : activeMarker === 4 ?
                                 <>
-                                    <div className="row-flex-around pl-10">
+                                    <div className="row-flex-center">
                                         <h2>Attachments</h2>
                                     </div>
+
                                     <div className="row-flex-center">
                                     <div className="column-10">
                                         <div className="row-flex-center">
-                                            <button 
-                                                type="button" 
-                                                className="btn w-64 pt-2 pb-2 pr-10 pl-10" 
+                                            <a 
+                                                className={`link ${formik.values.attachments.length === 2 ? 'disabled' : ''}`} 
                                                 onClick={createAttachments}
                                                 ref={addRef}
-                                                disabled={formik.values.attachments.length === 3}
                                             >
                                                 <span><TfiPlus /> Add attachment</span>
-                                            </button>
+                                            </a>
                                         </div>
-                                        {formik.values.attachments && formik.values.attachments.length === 3 && (
+                                        {formik.values.attachments && formik.values.attachments.length === 2 && (
                                             <div className="row-flex-center">
                                                 <p className="text-undone">Max limit reached</p>
                                             </div>
                                         )}
                                         <div className="row-flex-start">
                                             {formik.values.attachments.map((attachment, index) => (
-                                                <div className="column-3" key={index}>
+                                                <div className="column-5" key={index}>
                                                     <label htmlFor={`attachment-${index}`}>{index + 1}.</label>
                                                     <input 
                                                         type="file" 
@@ -320,11 +367,15 @@ const PlaceOrderContent = () => {
                                 </>
                                 :
                                 <>
-                                    <div className="row-flex-center pl-10">
+                                    <div className="row-flex-center">
                                         <h2>Preview</h2>
                                     </div>
+                                    
                                     <div className="row-flex-center">
                                         <h4>Preview of the order will be shown here</h4>
+                                    </div>
+                                    <div className="row-flex-center">
+                                        <p>Coming soon</p>
                                     </div>
                                 </>
                             }
@@ -354,4 +405,4 @@ const PlaceOrderContent = () => {
     )
 }
 
-export default PlaceOrderContent
+export default PlaceQuoteContent

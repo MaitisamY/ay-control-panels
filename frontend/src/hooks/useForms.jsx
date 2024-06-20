@@ -12,6 +12,7 @@ const useForms = () => {
   
     const commonFields = {
         name: Yup.string().required('Name is required'),
+        client: Yup.string().required('Client is required'),
         po: Yup.string().required('PO number is required'),
         colors: Yup.string().required('Colors is required'),
         format: Yup.string().required('Format is required'),
@@ -39,6 +40,7 @@ const useForms = () => {
         });
         initialValues = {
             name: '',
+            client: '',
             po: '',
             colors: '',
             format: '',
@@ -63,6 +65,7 @@ const useForms = () => {
         });
         initialValues = {
             name: '',
+            client: '',
             po: '',
             colors: '',
             format: '',
@@ -81,15 +84,18 @@ const useForms = () => {
             ...commonFields,
             halftone: Yup.string().required('Halftone is required'),
             colorSeparation: Yup.string().required('Color Separation is required'),
+            rush: Yup.string().required('Rush is required'),
         });
         initialValues = {
             name: '',
+            client: '',
             po: '',
             colors: '',
             format: '',
             blending: '',
             halftone: '',
             colorSeparation: '',
+            rush: '',
             notes: '',
             attachments: [],
         };

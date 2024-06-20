@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaUnlockKeyhole, FaRegUser, FaAt, FaRightToBracket } from 'react-icons/fa6';
+import { FaUnlockKeyhole, FaRegUser, FaAt, FaRightToBracket, FaPhone } from 'react-icons/fa6';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdLockReset } from 'react-icons/md';
 
 const Signup = () => {
@@ -23,12 +23,14 @@ const Signup = () => {
         initialValues: {
             name: '',
             email: '',
+            phone: '',
             password: '',
             confirmPassword: ''
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Name is required'),
             email: Yup.string().email('Invalid email address').required('Email is required'),
+            phone: Yup.number().positive().integer().required('Phone number is required'),
             password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -100,7 +102,7 @@ const Signup = () => {
                                 placeholder="Enter your name"
                             />
                         </div>
-                        {formik.errors.name ? <p>{formik.errors.name}</p> : null}
+                        {formik.touched.name && formik.errors.name ? <p>{formik.errors.name}</p> : null}
 
                         <div className="custom-group">
                             <span><FaAt /></span>
@@ -113,7 +115,20 @@ const Signup = () => {
                                 placeholder="Enter your email"
                             />
                         </div>
-                        {formik.errors.email ? <p>{formik.errors.email}</p> : null}
+                        {formik.touched.email && formik.errors.email ? <p>{formik.errors.email}</p> : null}
+
+                        <div className="custom-group">
+                            <span><FaPhone /></span>
+                            <input
+                                className="field"
+                                id="phone"
+                                name="phone"
+                                value={formik.values.phone} 
+                                onChange={formik.handleChange} 
+                                placeholder="Enter your phone number"
+                            />
+                        </div>
+                        {formik.touched.phone && formik.errors.phone ? <p>{formik.errors.phone}</p> : null}
 
                         <div className="custom-group">
                             <span><FaUnlockKeyhole /></span>
@@ -127,7 +142,7 @@ const Signup = () => {
                                 placeholder="Enter your password"
                             />
                         </div>
-                        {formik.errors.password ? <p>{formik.errors.password}</p> : null}
+                        {formik.touched.password && formik.errors.password ? <p>{formik.errors.password}</p> : null}
 
                         <div className="custom-group">
                             <span><FaUnlockKeyhole /></span>
@@ -141,7 +156,7 @@ const Signup = () => {
                                 placeholder="Confirm your password"
                             />
                         </div>
-                        {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
+                        {formik.touched.confirmPassword && formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
 
                         <div className="customer">
                             <h4>

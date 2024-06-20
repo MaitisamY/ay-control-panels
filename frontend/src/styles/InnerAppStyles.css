@@ -25,7 +25,7 @@
 }
 
 .inner-app-container form label {
-    margin: 10px 0 0 5px;
+    margin: 10px 0 0 0;
     font-size: 14px;
     font-weight: 600;
     color: #000;

@@ -1,17 +1,21 @@
 :root {
     --header-gradient: linear-gradient(45deg, #afe8ffa4, #cfebfea2);
     --sidebar-gradient: linear-gradient(120deg, #cfebfed5, #afe8ffd2);
+    --dropdown-box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.2);
+    --dropdown-bg-color: #33333307;
     --active-link: #3b48ff;
     --active-link-color: #fff;
     --btn-color: #000;
     --box-shadow: 0 0 0 4px #3b48ff;
     --active-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.04), 0 0 0 20px rgba(0, 0, 0, 0.03);
+    --hover-box-shadow-small: 0 0 0 6px rgba(0, 0, 0, 0.04), 0 0 0 12px rgba(0, 0, 0, 0.03);
     --outline: 2px solid #3b48ff9d;
     --input-bg: #0011fa0a;
     --radio-hover-effect: 0 0 0 4px rgba(0, 0, 0, 0.04);
     --radio-active-effect: 0 0 0 4px rgba(0, 0, 0, 0.04), 0 0 0 8px rgba(0, 0, 0, 0.03);
     --font-tilt-neon: 'Tilt Neon', sans-serif;
     --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+    --dropdown-pointy-arrow-color: #3b48ff;
 }
 
 .green-theme {
@@ -22,6 +26,7 @@
     --box-shadow: 0 0 0 4px #089242;
     --outline: 2px solid #0892429d;
     --input-bg: #08924209;
+    --dropdown-pointy-arrow-color: #089242;
 }
 
 .red-theme {
@@ -32,6 +37,7 @@
     --box-shadow: 0 0 0 4px #ff0000;
     --outline: 2px solid #ff00009d;
     --input-bg: #ff000009;
+    --dropdown-pointy-arrow-color: #ff0000;
 }
 
 .orange-theme {
@@ -42,6 +48,7 @@
     --box-shadow: 0 0 0 4px #ffa500;
     --outline: 2px solid #ffa5009d;
     --input-bg: #ffa50009;
+    --dropdown-pointy-arrow-color: #ffa500;
 }
 
 .yellow-theme {
@@ -52,6 +59,7 @@
     --box-shadow: 0 0 0 4px #ffff00;
     --outline: 2px solid #ffff009d;
     --input-bg: #ffff0009;
+    --dropdown-pointy-arrow-color: #ffff00;
 }
 
 .grayish-theme {
@@ -62,4 +70,5 @@
     --box-shadow: 0 0 0 4px #000;
     --outline: 2px solid #000;
     --input-bg: #00000009;
+    --dropdown-pointy-arrow-color: #000;
 }
